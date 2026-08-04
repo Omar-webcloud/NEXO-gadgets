@@ -103,7 +103,7 @@ export default function HomePage() {
         <div className="hero-shell">
           <div className="hero-copy">
             <span className="eyebrow"><span /> Designed for better days</span>
-            <h1>Premium Mobile Accessories &amp; Tech Gadgets in Bangladesh</h1>
+            <h1>Premium Mobile <span style={{ color: "var(--orange)" }}>Accessories &amp; Tech Gadgets</span> in Bangladesh</h1>
             <p>Thoughtfully designed gadgets that simplify your setup, power your day, and look good doing it.</p>
             <div className="hero-buttons">
               <Link className="button button-dark" href="/products#best-sellers">
@@ -114,14 +114,14 @@ export default function HomePage() {
             <div className="hero-proof">
               <div className="avatars"><span>JK</span><span>SA</span><span>MR</span></div>
               <div>
-                <strong>4.9 <span>â˜…â˜…â˜…â˜…â˜…</span></strong>
+                <strong>4.9 <span>★★★★★</span></strong>
                 <small>Loved by 12,000+ customers</small>
               </div>
             </div>
           </div>
           <div className="hero-visual">
             <img
-              src="/images/hero-stand.svg"
+              src="/images/foldable-stand.jpg"
               alt="NEXO FlexFold premium phone stand holding a smartphone, mobile accessory from Bangladesh"
               loading="eager"
               fetchPriority="high"
@@ -240,25 +240,20 @@ export default function HomePage() {
         </div>
         {!filtered.length && <div className="empty-products">No products found. Try another search.</div>}
         <div className="center">
-          <button
-            className="button button-outline"
-            onClick={() => {
-              setActive("All");
-              setQuery("");
-            }}
-          >
+          <Link href="/products" className="button button-outline">
             Explore all products <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
       </section>
 
       <section className="feature section-shell" id="story">
         <div className="feature-image">
-          <img
-            src="/images/head-massager.svg"
-            alt="NEXO Pulse smart head massager, wellness tech gadget from Bangladesh"
-            loading="lazy"
-            decoding="async"
+          <video
+            src="/videos/head massager video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
           />
           <span className="feature-number">02</span>
         </div>
@@ -286,7 +281,7 @@ export default function HomePage() {
           NEXO makes the things you use every day feel <em>considered, calm, and quietly brilliant.</em>
         </blockquote>
         <div className="press">
-          <span>â˜…â˜…â˜…â˜…â˜… <small>4.9 / 5 from 2,400+ reviews</small></span>
+          <span>★★★★★ <small>4.9 / 5 from 2,400+ reviews</small></span>
           <b>design/milk</b>
           <b>HYPEBEAST</b>
           <b>GQ</b>

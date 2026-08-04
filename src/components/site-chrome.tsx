@@ -14,12 +14,7 @@ const navLinks = [
 function Logo() {
   return (
     <Link href="/#top" className="logo" aria-label={`${SITE_NAME} home`}>
-      <span className="logo-mark">
-        <i />
-        <i />
-        <i />
-        <i />
-      </span>
+      <img src="/images/logo.png" alt={`${SITE_NAME} Logo`} className="w-8 h-8 rounded-md object-cover" />
       <span>{SITE_NAME}</span>
     </Link>
   );

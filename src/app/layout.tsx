@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/images/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: SITE_LOCALE,
