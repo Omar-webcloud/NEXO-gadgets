@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-
-const SITE_URL = "https://nexogadgets.com";
+import { SITE_COUNTRY, SITE_LOCALE, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  applicationName: SITE_NAME,
   title: "NEXO Bangladesh | Premium Mobile Accessories, Tech Gadgets & Smart Devices",
   description:
     "Discover premium mobile accessories, tech gadgets, charging solutions, audio accessories, smart devices, wearable accessories, and everyday tech essentials from NEXO Bangladesh. Quality products designed to keep you connected and productive.",
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: SITE_LOCALE,
     url: SITE_URL,
-    siteName: "NEXO",
+    siteName: SITE_NAME,
     title: "NEXO Bangladesh | Premium Mobile Accessories, Tech Gadgets & Smart Devices",
     description:
       "Discover premium mobile accessories, tech gadgets, charging solutions, audio accessories, smart devices, wearable accessories, and everyday tech essentials from NEXO Bangladesh.",
-    images: [{ url: "/images/og-cover.jpg", width: 1200, height: 630, alt: "NEXO Bangladesh — Premium Tech Accessories" }],
+    images: [{ url: "/images/og-cover.jpg", width: 1200, height: 630, alt: "NEXO Bangladesh - Premium Tech Accessories" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -50,17 +50,31 @@ export const metadata: Metadata = {
       "Premium mobile accessories, smart gadgets, and everyday tech essentials from NEXO Bangladesh.",
     images: ["/images/og-cover.jpg"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   other: {
     "theme-color": "#ff5b10",
+    "geo.region": "BD",
+    "geo.placename": SITE_COUNTRY,
+    "geo.position": "23.8103;90.4125",
+    ICBM: "23.8103, 90.4125",
   },
 };
 
-/* ── Structured Data (JSON-LD) ── */
+/* Structured Data (JSON-LD) */
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "NEXO",
+  name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   description:
@@ -76,7 +90,7 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "NEXO",
+  name: SITE_NAME,
   url: SITE_URL,
   potentialAction: {
     "@type": "SearchAction",
@@ -134,7 +148,7 @@ const faqSchema = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-BD">
       <head>
         <meta name="google-site-verification" content="AProJEuc056711v17-vX-ITQusdcNFOchItLKFqPNY0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -143,18 +157,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </head>
       <body>{children}</body>
     </html>

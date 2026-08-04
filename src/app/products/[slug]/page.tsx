@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, PackageCheck, ShieldCheck, Truck } from "lucide-react";
 import { products } from "@/lib/products";
+import { SITE_URL } from "@/lib/site";
 
 function formatBDT(value: number) {
   return new Intl.NumberFormat("bn-BD", {
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {};
   }
 
-  const canonicalUrl = `https://nexogadgets.com/products/${product.slug}`;
+  const canonicalUrl = `${SITE_URL}/products/${product.slug}`;
 
   return {
     title: product.seoTitle,
@@ -43,6 +44,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: product.seoDescription,
       url: canonicalUrl,
       type: "website",
+      locale: "en_BD",
+      siteName: "NEXO",
       images: [{ url: product.image, width: 1200, height: 630, alt: product.name }],
     },
     twitter: {
@@ -51,7 +54,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: product.seoDescription,
       images: [product.image],
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
 
