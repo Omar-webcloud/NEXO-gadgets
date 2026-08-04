@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -36,15 +37,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-
-const products = [
-  { id: 1, name: "FlexFold Phone Stand", category: "Stands", price: 39, oldPrice: 49, image: "/images/hero-stand.svg", label: "Bestseller", colors: ["#3a3a38", "#d6d4cd", "#e7b676"] },
-  { id: 2, name: "AirLift Laptop Stand", category: "Stands", price: 79, oldPrice: 99, image: "/images/laptop-stand.svg", label: "New", colors: ["#c9c8c3", "#343536"] },
-  { id: 3, name: "Pulse Smart Massager", category: "Wellness", price: 69, oldPrice: 89, image: "/images/head-massager.svg", label: "Trending", colors: ["#f0eee8", "#9b9b94"] },
-  { id: 4, name: "Breeze Mini Fan", category: "Lifestyle", price: 29, oldPrice: 39, image: "/images/mini-fan.svg", label: "Fan favorite", colors: ["#e9e7dd", "#a9c4cd", "#e7b8a7"] },
-  { id: 5, name: "SnapCharge 10K", category: "Power", price: 59, oldPrice: 74, image: "/images/powerbank.svg", label: "Fast charge", colors: ["#252526", "#dedbd1"] },
-  { id: 6, name: "NEXO Buds Pro", category: "Audio", price: 89, oldPrice: 119, image: "/images/earbuds.svg", label: "Top rated", colors: ["#eceae4", "#2f3031", "#e5a878"] },
-];
+import { products } from "@/lib/products";
 
 const categories = [
   { name: "All", icon: Sparkles },
@@ -304,6 +297,9 @@ export default function HomePage() {
                   <s>{formatBDT(product.oldPrice)}</s>
                 </div>
               </div>
+              <Link href={`/${product.slug}`} className="product-link">
+                View product <ArrowRight size={15} />
+              </Link>
               <div className="swatches">
                 {product.colors.map((color) => (
                   <i key={color} style={{ background: color }} />

@@ -1103,6 +1103,234 @@ img {
   flex-shrink: 0;
 }
 
+/* ── Product Page Styles ── */
+.product-page {
+  background: #f7f6f1;
+}
+
+.product-hero {
+  background: linear-gradient(135deg, #fffaf3 0%, #f1efe8 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.product-hero-shell {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 28px var(--page-gutter) 56px;
+}
+
+.product-backlink {
+  margin-bottom: 22px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.product-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.product-media {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 18px 45px rgba(24, 25, 20, 0.06);
+}
+
+.product-media img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.product-eyebrow {
+  display: inline-flex;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 118, 20, 0.12);
+  color: var(--orange);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.product-copy h1 {
+  margin: 14px 0 12px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.08;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+}
+
+.product-short {
+  margin: 0 0 16px;
+  font-size: 1.04rem;
+  color: var(--muted);
+}
+
+.product-price-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.product-price-row strong {
+  font-size: 2rem;
+  color: var(--dark);
+}
+
+.product-price-row span {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.product-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  background: var(--dark);
+  color: white;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.product-description {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.product-actions .button {
+  height: auto;
+  padding: 12px 18px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.product-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.product-highlights div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  font-size: 0.92rem;
+  color: var(--dark);
+}
+
+.product-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.product-section-card,
+.product-spec-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(24, 25, 20, 0.05);
+}
+
+.product-spec-card h3 {
+  margin: 0 0 20px;
+  font-family: Georgia, serif;
+  font-size: var(--fs-2xl);
+  font-weight: 500;
+}
+
+.feature-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #fcfbf7;
+  border: 1px solid #efeee7;
+  border-radius: 14px;
+}
+
+.feature-item svg {
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: #fcfbf7;
+  border-radius: 14px;
+  border: 1px solid #efeee7;
+}
+
+.spec-item span {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: var(--orange);
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.product-link:hover {
+  gap: 12px;
+}
+
 .faq-section {
   padding-block: 90px 100px;
 }
@@ -1716,6 +1944,23 @@ footer .footer-top > div:not(:first-child) a:hover {
 
   .about-categories ul {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .product-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .product-actions .button {
+    width: 100%;
   }
 }
 
