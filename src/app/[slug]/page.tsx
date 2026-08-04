@@ -91,7 +91,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </div>
               <p className="product-description">{product.description}</p>
               <div className="product-actions">
-                <a className="button button-dark" href="/">Buy now</a>
+                <Link className="button button-dark" href="/">Buy now</Link>
                 <a className="button button-outline" href="#features">See features</a>
               </div>
               <div className="product-highlights">
@@ -108,7 +108,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="product-section-card">
           <div className="section-heading">
             <div>
-              <span className="eyebrow"><span /> Why you'll love it</span>
+              <span className="eyebrow"><span /> Why you&apos;ll love it</span>
               <h2>{product.name}</h2>
             </div>
             <p>{product.description}</p>
