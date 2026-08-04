@@ -32,20 +32,20 @@ const categoryHighlights = [
 
 const faqData = [
   {
-    q: "Why do product pages matter for SEO?",
-    a: "Dedicated product pages give each item its own URL, title, description, and structured data so search engines can understand and rank them more clearly.",
+    q: "What kind of products does NEXO sell?",
+    a: "NEXO offers mobile accessories, phone and laptop stands, power banks, wireless audio products, wellness gadgets, and everyday tech essentials for modern users in Bangladesh.",
   },
   {
-    q: "What should a product page include?",
-    a: "The best product pages show the name, price, availability, images, specs, compatibility details, shipping info, and trust signals like returns or warranty support.",
+    q: "Are NEXO products available in Bangladesh?",
+    a: "Yes. NEXO is focused on Bangladesh and offers tech accessories designed for local shoppers, daily use, and fast delivery support.",
   },
   {
-    q: "Why use category pages too?",
-    a: "Category pages help shoppers browse by intent and create stronger internal links to the detailed product pages.",
+    q: "How do I choose the right NEXO product?",
+    a: "Start with the category that matches your need, then open the product page to compare features, price, specs, compatibility, and use cases.",
   },
   {
-    q: "Does this page include structured data?",
-    a: "Yes. The products page includes ItemList markup, and each product detail page includes Product and Breadcrumb structured data.",
+    q: "Do NEXO products include warranty or return support?",
+    a: "Product pages include shopping details such as warranty support, delivery information, and return guidance where available.",
   },
 ];
 
@@ -90,9 +90,6 @@ export default function ProductsPage() {
             <span className="eyebrow"><span /> NEXO products</span>
             <h1>Separate product pages, organized for search and shopping.</h1>
           </div>
-          <p>
-            Browse the full catalog, then jump into dedicated product pages for prices, specs, compatibility notes, and availability.
-          </p>
         </div>
         <div className="catalog-highlights">
           {categoryHighlights.map(({ icon: Icon, title, text }) => (
@@ -105,13 +102,12 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="section-shell" aria-label="Browse categories">
+      <section className="catalog-section section-shell" aria-label="Browse categories">
         <div className="section-heading">
           <div>
             <span className="eyebrow"><span /> Categories</span>
             <h2>Shop by category</h2>
           </div>
-          <p>Clear category URLs help people and search engines discover related products faster.</p>
         </div>
         <div className="catalog-categories">
           {catalogCategories.map((category) => (
@@ -125,13 +121,12 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="section-shell" id="best-sellers">
+      <section className="catalog-section catalog-products section-shell" id="best-sellers">
         <div className="section-heading">
           <div>
             <span className="eyebrow"><span /> Best sellers</span>
             <h2>Popular products</h2>
           </div>
-          <p>Each card goes to its own URL, which is better for users and crawlability.</p>
         </div>
         <div className="product-grid">
           {products.map((product) => (
@@ -158,13 +153,12 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section className="section-shell products-faq">
+      <section className="catalog-section products-faq section-shell">
         <div className="section-heading">
           <div>
             <span className="eyebrow"><span /> FAQ</span>
-            <h2>Why this catalog structure helps</h2>
+            <h2>Questions about NEXO products</h2>
           </div>
-          <p>These answers stay specific to the products hub and the SEO structure behind it.</p>
         </div>
         <div className="products-faq-grid">
           {faqData.map((item) => (

@@ -163,7 +163,7 @@ export default function HomePage() {
         <div className="benefits-shell">
           <div><Truck /><span><strong>Free express shipping</strong><small>On orders over ৳60</small></span></div>
           <div><ShieldCheck /><span><strong>2-year warranty</strong><small>Built to go the distance</small></span></div>
-          <div><PackageCheck /><span><strong>30-day returns</strong><small>Try it, risk-free</small></span></div>
+          <div><PackageCheck /><span><strong>3-day returns</strong><small>Unused items only</small></span></div>
           <div><Sparkles /><span><strong>Premium quality</strong><small>Tested. Refined. Reliable.</small></span></div>
         </div>
       </section>

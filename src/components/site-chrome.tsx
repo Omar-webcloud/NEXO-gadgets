@@ -104,8 +104,8 @@ export function SiteFooter() {
         <div className="footer-bottom">
           <span>© 2026 NEXO. All rights reserved.</span>
           <span>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </span>
           <b>Made for your everyday ↗</b>
         </div>
