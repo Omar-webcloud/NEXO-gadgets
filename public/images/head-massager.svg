@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="NEXO head massager illustration">
+  <rect width="1200" height="900" rx="48" fill="#f7f1e8"/>
+  <circle cx="888" cy="274" r="164" fill="#ff5b10" opacity="0.18"/>
+  <rect x="300" y="248" width="380" height="366" rx="54" fill="#1f2320"/>
+  <rect x="334" y="286" width="312" height="294" rx="42" fill="#fefaf3"/>
+  <rect x="370" y="324" width="240" height="112" rx="24" fill="#f0d8be"/>
+  <circle cx="436" cy="382" r="24" fill="#ff5b10"/>
+  <circle cx="514" cy="382" r="24" fill="#ff5b10"/>
+  <rect x="428" y="432" width="96" height="70" rx="16" fill="#c7b69d"/>
+  <rect x="690" y="316" width="192" height="208" rx="30" fill="#e7e0d1"/>
+  <rect x="720" y="350" width="126" height="88" rx="20" fill="#ff5b10" opacity="0.86"/>
+  <rect x="738" y="448" width="94" height="20" rx="10" fill="#8b8374"/>
+  <text x="276" y="140" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#1f2320">PULSE SMART MASSAGER</text>
+</svg>
