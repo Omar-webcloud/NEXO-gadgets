@@ -5,9 +5,7 @@ import {
   ArrowRight,
   Award,
   BatteryCharging,
-  Camera,
   Check,
-  ChevronDown,
   ChevronRight,
   Globe,
   Headphones,
@@ -16,24 +14,17 @@ import {
   Laptop,
   Lightbulb,
   Mail,
-  Menu,
   MessageCircleMore,
-  Minus,
-  Music2,
   PackageCheck,
   Plus,
   Search,
   Shield,
   ShieldCheck,
-  ShoppingBag,
   Smartphone,
   Sparkles,
   Star,
   Truck,
-  UserRound,
-  Video,
   Wind,
-  X,
   Zap,
 } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -72,8 +63,6 @@ const aboutCategories = [
   "Car Accessories", "Computer Accessories", "Lifestyle Tech Products",
 ];
 
-type Cart = Record<number, number>;
-
 const formatBDT = (value: number) =>
   new Intl.NumberFormat("bn-BD", {
     style: "currency",
@@ -81,26 +70,8 @@ const formatBDT = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value);
 
-function Logo({ light = false }: { light?: boolean }) {
-  return (
-    <a href="#top" className={`logo ${light ? "logo-light" : ""}`} aria-label="NEXO home">
-      <span className="logo-mark">
-        <i />
-        <i />
-        <i />
-        <i />
-      </span>
-      <span>NEXO</span>
-    </a>
-  );
-}
-
 export default function HomePage() {
   const [active, setActive] = useState("All");
-  const [cart, setCart] = useState<Cart>({});
-  const [cartOpen, setCartOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [toast, setToast] = useState("");
   const [email, setEmail] = useState("");
@@ -116,76 +87,18 @@ export default function HomePage() {
       ),
     [active, query],
   );
-  const cartCount = Object.values(cart).reduce((sum, value) => sum + value, 0);
-  const total = products.reduce((sum, product) => sum + product.price * (cart[product.id] || 0), 0);
 
   function notify(message: string) {
     setToast(message);
     window.setTimeout(() => setToast(""), 2200);
   }
 
-  function addToCart(id: number) {
-    setCart((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  function addToCart() {
     notify("Added to your bag");
-  }
-
-  function updateCart(id: number, amount: number) {
-    setCart((prev) => {
-      const next = Math.max(0, (prev[id] || 0) + amount);
-      const copy = { ...prev, [id]: next };
-      if (!next) delete copy[id];
-      return copy;
-    });
   }
 
   return (
     <main id="top">
-      <div className="announcement">
-        <p><span>SPRING DROP</span> Save up to 30% on everyday essentials</p>
-        <a href="#shop">Shop the edit <ArrowRight size={14} /></a>
-      </div>
-
-      <header className="site-header">
-        <nav className="nav-shell" aria-label="Main navigation">
-          <button className="icon-button mobile-only" onClick={() => setMenuOpen(true)} aria-label="Open menu">
-            <Menu size={22} />
-          </button>
-          <Logo />
-          <div className="nav-links">
-            <a href="#shop">New in</a>
-            <a href="#shop">Best sellers</a>
-            <a href="#categories">Categories <ChevronDown size={14} /></a>
-            <a href="#about">About</a>
-          </div>
-          <div className="nav-actions">
-            <button className="icon-button" onClick={() => setSearchOpen(!searchOpen)} aria-label="Search">
-              <Search size={20} />
-            </button>
-            <button className="icon-button desktop-user" onClick={() => notify("Account access coming soon")} aria-label="Account">
-              <UserRound size={20} />
-            </button>
-            <button className="icon-button cart-button" onClick={() => setCartOpen(true)} aria-label={`Cart with ${cartCount} items`}>
-              <ShoppingBag size={20} />
-              {cartCount > 0 && <b>{cartCount}</b>}
-            </button>
-          </div>
-        </nav>
-        {searchOpen && (
-          <div className="search-panel">
-            <Search size={18} />
-            <input
-              autoFocus
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search the NEXO collection..."
-            />
-            <button onClick={() => { setQuery(""); setSearchOpen(false); }} aria-label="Close search">
-              <X size={18} />
-            </button>
-          </div>
-        )}
-      </header>
-
       <section className="hero">
         <div className="hero-shell">
           <div className="hero-copy">
@@ -193,13 +106,15 @@ export default function HomePage() {
             <h1>Premium Mobile Accessories &amp; Tech Gadgets in Bangladesh</h1>
             <p>Thoughtfully designed gadgets that simplify your setup, power your day, and look good doing it.</p>
             <div className="hero-buttons">
-              <a className="button button-dark" href="#shop">Shop best sellers <ArrowRight size={17} /></a>
+              <Link className="button button-dark" href="/products#best-sellers">
+                Shop best sellers <ArrowRight size={17} />
+              </Link>
               <a className="text-link" href="#about">Why NEXO <ArrowRight size={16} /></a>
             </div>
             <div className="hero-proof">
               <div className="avatars"><span>JK</span><span>SA</span><span>MR</span></div>
               <div>
-                <strong>4.9 <span>★★★★★</span></strong>
+                <strong>4.9 <span>â˜…â˜…â˜…â˜…â˜…</span></strong>
                 <small>Loved by 12,000+ customers</small>
               </div>
             </div>
@@ -261,6 +176,20 @@ export default function HomePage() {
           </div>
           <p>Designed around the way you actually live, work, and move.</p>
         </div>
+        <div className="collection-search">
+          <Search size={18} />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search the NEXO collection..."
+            aria-label="Search the NEXO collection"
+          />
+          {query && (
+            <button onClick={() => setQuery("")} aria-label="Clear search">
+              Clear
+            </button>
+          )}
+        </div>
         <div className="category-row" id="categories">
           {categories.map(({ name, icon: Icon }) => (
             <button key={name} className={active === name ? "active" : ""} onClick={() => setActive(name)}>
@@ -283,7 +212,7 @@ export default function HomePage() {
                 <button className="heart" onClick={() => notify(`${product.name} saved to favorites`)} aria-label={`Save ${product.name}`}>
                   <Heart size={18} />
                 </button>
-                <button className="quick-add" onClick={() => addToCart(product.id)}>
+                <button className="quick-add" onClick={addToCart}>
                   Quick add <Plus size={17} />
                 </button>
               </div>
@@ -297,7 +226,7 @@ export default function HomePage() {
                   <s>{formatBDT(product.oldPrice)}</s>
                 </div>
               </div>
-              <Link href={`/${product.slug}`} className="product-link">
+              <Link href={`/products/${product.slug}`} className="product-link">
                 View product <ArrowRight size={15} />
               </Link>
               <div className="swatches">
@@ -344,7 +273,7 @@ export default function HomePage() {
           </ul>
           <div className="feature-price">
             <span>From <strong>{formatBDT(69)}</strong> <s>{formatBDT(89)}</s></span>
-            <button className="button button-light" onClick={() => addToCart(3)}>
+            <button className="button button-light" onClick={addToCart}>
               Meet Pulse <ArrowRight size={16} />
             </button>
           </div>
@@ -357,7 +286,7 @@ export default function HomePage() {
           NEXO makes the things you use every day feel <em>considered, calm, and quietly brilliant.</em>
         </blockquote>
         <div className="press">
-          <span>★★★★★ <small>4.9 / 5 from 2,400+ reviews</small></span>
+          <span>â˜…â˜…â˜…â˜…â˜… <small>4.9 / 5 from 2,400+ reviews</small></span>
           <b>design/milk</b>
           <b>HYPEBEAST</b>
           <b>GQ</b>
@@ -485,7 +414,7 @@ export default function HomePage() {
             className="contact-form"
             onSubmit={(e) => {
               e.preventDefault();
-              setToast("Message sent - we’ll reply soon!");
+              notify("Message sent - we'll reply soon!");
               setEmail("");
               setQuery("");
             }}
@@ -499,118 +428,6 @@ export default function HomePage() {
           </form>
         </div>
       </section>
-
-      <footer>
-        <div className="footer-inner">
-          <div className="footer-top">
-            <div className="footer-brand">
-              <Logo light />
-              <p>Tools for better living.<br />Designed with intention.</p>
-              <div className="socials">
-                <a href="https://www.facebook.com/nexogadg3ts" target="_blank" rel="noopener noreferrer" aria-label="NEXO on Facebook">
-                  <MessageCircleMore size={16} />
-                </a>
-                <a href="https://www.instagram.com/nexo_bd" target="_blank" rel="noopener noreferrer" aria-label="NEXO on Instagram">
-                  <Camera size={16} />
-                </a>
-                <a href="https://www.tiktok.com/@nexogadg3ts" target="_blank" rel="noopener noreferrer" aria-label="NEXO on TikTok">
-                  <Music2 size={16} />
-                </a>
-                <a href="https://www.youtube.com/@NEXO-bd" target="_blank" rel="noopener noreferrer" aria-label="NEXO on YouTube">
-                  <Video size={16} />
-                </a>
-              </div>
-            </div>
-            <div>
-              <h4>Support</h4>
-              <a href="#contact">Contact us</a>
-              <a href="#faq">FAQs</a>
-              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            </div>
-            <div>
-              <h4>Explore</h4>
-              <a href="#shop">New arrivals</a>
-              <a href="#shop">Best sellers</a>
-              <a href="#about">Our story</a>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <span>© 2026 NEXO. All rights reserved.</span>
-            <span>
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-            </span>
-            <b>Made for your everyday ↗</b>
-          </div>
-        </div>
-      </footer>
-
-      {menuOpen && (
-        <div className="mobile-menu">
-          <button onClick={() => setMenuOpen(false)} aria-label="Close menu"><X /></button>
-          <Logo />
-          <a href="#shop" onClick={() => setMenuOpen(false)}>New in</a>
-          <a href="#shop" onClick={() => setMenuOpen(false)}>Best sellers</a>
-          <a href="#categories" onClick={() => setMenuOpen(false)}>Categories</a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#faq" onClick={() => setMenuOpen(false)}>FAQs</a>
-        </div>
-      )}
-
-      {cartOpen && (
-        <>
-          <div className="drawer-backdrop" onClick={() => setCartOpen(false)} />
-          <aside className="cart-drawer">
-            <div className="drawer-head">
-              <div>
-                <small>YOUR BAG</small>
-                <h2>{cartCount ? `${cartCount} item${cartCount > 1 ? "s" : ""}` : "Your bag is empty"}</h2>
-              </div>
-              <button onClick={() => setCartOpen(false)} aria-label="Close cart">
-                <X />
-              </button>
-            </div>
-            {cartCount === 0 ? (
-              <div className="empty-cart">
-                <ShoppingBag size={36} />
-                <p>Your next everyday favorite is waiting.</p>
-                <button className="button button-dark" onClick={() => setCartOpen(false)}>Start shopping</button>
-              </div>
-            ) : (
-              <>
-                <div className="cart-items">
-                  {products.filter((product) => cart[product.id]).map((product) => (
-                    <div className="cart-item" key={product.id}>
-                      <img src={product.image} alt="" />
-                      <div>
-                        <h3>{product.name}</h3>
-                        <small>{product.category} · Standard</small>
-                        <div className="quantity">
-                          <button onClick={() => updateCart(product.id, -1)} aria-label={`Decrease ${product.name}`}>
-                            <Minus size={13} />
-                          </button>
-                          <span>{cart[product.id]}</span>
-                          <button onClick={() => updateCart(product.id, 1)} aria-label={`Increase ${product.name}`}>
-                            <Plus size={13} />
-                          </button>
-                        </div>
-                      </div>
-                      <strong>{formatBDT(product.price * cart[product.id])}</strong>
-                    </div>
-                  ))}
-                </div>
-                <div className="drawer-footer">
-                  <p><span>Subtotal</span><strong>{formatBDT(total)}</strong></p>
-                  <small>Shipping calculated at checkout</small>
-                  <button className="button button-dark" onClick={() => notify("Secure checkout ready")}>
-                    Checkout <ArrowRight size={17} />
-                  </button>
-                </div>
-              </>
-            )}
-          </aside>
-        </>
-      )}
 
       {toast && (
         <div className="toast">

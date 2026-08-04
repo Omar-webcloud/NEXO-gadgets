@@ -77,14 +77,49 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   }
 
   const relatedProducts = products.filter((item) => item.id !== product.id).slice(0, 3);
+  const canonicalUrl = `${SITE_URL}/products/${product.slug}`;
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: `${SITE_URL}${product.image}`,
+    sku: product.slug,
+    brand: {
+      "@type": "Brand",
+      name: "NEXO",
+    },
+    offers: {
+      "@type": "Offer",
+      url: canonicalUrl,
+      priceCurrency: "BDT",
+      price: product.price,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "NEXO",
+      },
+    },
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${SITE_URL}/products` },
+      { "@type": "ListItem", position: 3, name: product.name, item: canonicalUrl },
+    ],
+  };
 
   return (
     <main className="product-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="product-hero">
         <div className="product-hero-shell">
           <div className="product-backlink">
-            <Link href="/" className="back-link">
-              <ArrowLeft size={16} /> Back to NEXO
+            <Link href="/products" className="back-link">
+              <ArrowLeft size={16} /> Back to products
             </Link>
           </div>
           <div className="product-hero-grid">
@@ -104,7 +139,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </div>
               <p className="product-description">{product.description}</p>
               <div className="product-actions">
-                <Link className="button button-dark" href="/">Buy now</Link>
+                <Link className="button button-dark" href="/products">Buy now</Link>
                 <a className="button button-outline" href="#features">See features</a>
               </div>
               <div className="product-highlights">
