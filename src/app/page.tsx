@@ -137,8 +137,7 @@ export default function HomePage() {
             <div className="floating-card float-bottom">
               <span><Check size={19} /></span>
               <div>
-                <small>Built to last</small>
-                <strong>Premium aluminum</strong>
+                <strong>Premium silicon</strong>
               </div>
             </div>
             <div className="hero-tag">01 <i /> FLEXFOLD</div>
@@ -267,7 +266,7 @@ export default function HomePage() {
             <li><Check size={16} /> Up to 10 days battery life</li>
           </ul>
           <div className="feature-price">
-            <span>From <strong>{formatBDT(69)}</strong> <s>{formatBDT(89)}</s></span>
+            <span>From <strong>{formatBDT(700)}</strong> <s>{formatBDT(899)}</s></span>
             <button className="button button-light" onClick={addToCart}>
               Meet Pulse <ArrowRight size={16} />
             </button>
