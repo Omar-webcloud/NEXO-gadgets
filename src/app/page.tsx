@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { products } from "@/lib/products";
+import { useCart } from "@/lib/cart";
 
 const categories = [
   { name: "All", icon: Sparkles },
@@ -72,6 +73,7 @@ const formatBDT = (value: number) =>
 
 export default function HomePage() {
   const [active, setActive] = useState("All");
+  const cart = useCart();
   const [query, setQuery] = useState("");
   const [toast, setToast] = useState("");
   const [email, setEmail] = useState("");
@@ -93,7 +95,14 @@ export default function HomePage() {
     window.setTimeout(() => setToast(""), 2200);
   }
 
-  function addToCart() {
+  function addToCart(product: any) {
+    cart.addItem({
+      productId: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      color: product.colors[0],
+    });
     notify("Added to your bag");
   }
 
@@ -211,7 +220,7 @@ export default function HomePage() {
                 <button className="heart" onClick={() => notify(`${product.name} saved to favorites`)} aria-label={`Save ${product.name}`}>
                   <Heart size={18} />
                 </button>
-                <button className="quick-add" onClick={addToCart}>
+                <button className="quick-add" onClick={() => addToCart(product)}>
                   Quick add <Plus size={17} />
                 </button>
               </div>
@@ -267,7 +276,7 @@ export default function HomePage() {
           </ul>
           <div className="feature-price">
             <span>From <strong>{formatBDT(700)}</strong> <s>{formatBDT(899)}</s></span>
-            <button className="button button-light" onClick={addToCart}>
+            <button className="button button-light" onClick={() => addToCart(products.find(p => p.id === 3)!)}>
               Meet Pulse <ArrowRight size={16} />
             </button>
           </div>
@@ -355,52 +364,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="newsletter">
-        <div className="newsletter-inner">
-          <div>
-            <span className="eyebrow light"><span /> Join the inner circle</span>
-            <h2>Better tech.<br />Straight to your inbox.</h2>
-          </div>
-          <form onSubmit={(e) => { e.preventDefault(); if (email.includes("@")) setJoined(true); }}>
-            {joined ? (
-              <div className="joined">
-                <Check size={20} /> You&rsquo;re in. Welcome to NEXO.
-              </div>
-            ) : (
-              <>
-                <div className="email-field">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email address"
-                  />
-                  <button aria-label="Join newsletter">
-                    <ArrowRight />
-                  </button>
-                </div>
-                <small>Get 10% off your first order + first access to new drops.</small>
-              </>
-            )}
-          </form>
-        </div>
-      </section>
-
-      <section className="contact-section" id="contact">
+      <section className="contact-section newsletter" id="contact">
         <div className="contact-inner">
           <div className="contact-copy">
-            <span className="eyebrow"><span /> Let&apos;s talk</span>
+            <span className="eyebrow light"><span /> Let&apos;s talk</span>
             <h2>Get in Touch</h2>
-            <p>Have a question or want to place a custom order? Reach us via WhatsApp or email, or send us a quick message below.</p>
+            <p style={{ color: "#fff" }}>Have a question or want to place a custom order? Reach us via WhatsApp or email, or send us a quick message below.</p>
             <div className="contact-info">
               <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="WhatsApp NEXO">
                 <span className="contact-link-icon"><MessageCircleMore size={18} /></span>
-                <span>WhatsApp</span>
+                <span style={{ color: "#111" }}>WhatsApp</span>
               </a>
               <a href="mailto:nexogadg3ts@gmail.com" className="contact-link" aria-label="Email NEXO">
                 <span className="contact-link-icon"><Mail size={18} /></span>
-                <span>Email</span>
+                <span style={{ color: "#111" }}>Email</span>
               </a>
             </div>
           </div>
@@ -408,17 +385,24 @@ export default function HomePage() {
             className="contact-form"
             onSubmit={(e) => {
               e.preventDefault();
-              notify("Message sent - we'll reply soon!");
-              setEmail("");
-              setQuery("");
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get("name") as string;
+              const phone = formData.get("phone") as string;
+              const message = formData.get("message") as string;
+              
+              const text = `Hello NEXO, I am ${name} (${phone}).\n\n${message}`;
+              const whatsappUrl = `https://wa.me/8801796073736?text=${encodeURIComponent(text)}`;
+              window.open(whatsappUrl, '_blank');
+              
+              e.currentTarget.reset();
             }}
           >
             <div className="contact-grid">
-              <input type="text" placeholder="Your name" required className="contact-input" />
-              <input type="email" placeholder="Your email" required className="contact-input" />
+              <input name="name" type="text" placeholder="Your name" required className="contact-input" />
+              <input name="phone" type="tel" placeholder="Your Phone Number" required className="contact-input" />
             </div>
-            <textarea placeholder="Your message" rows={5} required className="contact-textarea" />
-            <button type="submit" className="button button-dark">Send Message</button>
+            <textarea name="message" placeholder="Your message" rows={5} required className="contact-textarea" />
+            <button type="submit" className="button button-dark">Send via WhatsApp</button>
           </form>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, PackageCheck, ShieldCheck, Truck } from "lucide-react";
 import { products } from "@/lib/products";
 import { SITE_URL } from "@/lib/site";
+import { AddToCartButton } from "@/components/add-to-cart-button";
 
 function formatBDT(value: number) {
   return new Intl.NumberFormat("bn-BD", {
@@ -139,7 +140,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </div>
               <p className="product-description">{product.description}</p>
               <div className="product-actions">
-                <Link className="button button-dark" href="/products">Buy now</Link>
+                <AddToCartButton product={product} />
                 <a className="button button-outline" href="#features">See features</a>
               </div>
               <div className="product-highlights">
