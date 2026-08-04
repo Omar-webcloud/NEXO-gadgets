@@ -636,10 +636,108 @@ img {
   margin: 0 0 7px;
 }
 
+.collection-controls {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.collection-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #deded5;
+  border-radius: 16px;
+  padding: 8px 12px 8px 14px;
+  max-width: 640px;
+  box-shadow: 0 4px 20px rgba(24, 25, 20, 0.04);
+  transition: all 0.25s ease;
+}
+
+.collection-search-box:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 8px 30px rgba(255, 118, 20, 0.12);
+  transform: translateY(-1px);
+}
+
+.search-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f7f6f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.collection-search-box:focus-within .search-icon-wrapper {
+  background: rgba(255, 118, 20, 0.12);
+  color: var(--orange);
+}
+
+.collection-search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 14px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.collection-search-box input::placeholder {
+  color: #9a9b93;
+}
+
+.collection-search-box .clear-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f4efe6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collection-search-box .clear-btn:hover {
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.search-shortcut {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: #f4efe6;
+  padding: 5px 12px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.search-results-count {
+  font-size: var(--fs-xs);
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding-left: 6px;
+}
+
 .category-row {
   display: flex;
-  gap: 7px;
-  margin: 52px 0 31px;
+  gap: 8px;
+  margin: 24px 0 32px;
   overflow: auto;
   padding-bottom: 4px;
 }
@@ -2377,8 +2475,26 @@ footer .footer-top > div:not(:first-child) a:hover {
     margin-top: 22px;
   }
 
+  .collection-controls {
+    margin-top: 24px;
+  }
+
+  .collection-search-box {
+    padding: 6px 10px;
+    border-radius: 12px;
+  }
+
+  .collection-search-box input {
+    font-size: 0.875rem;
+    padding: 0 8px;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+
   .category-row {
-    margin-top: 34px;
+    margin-top: 20px;
   }
 
   .product-grid {

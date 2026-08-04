@@ -25,6 +25,7 @@ import {
   Star,
   Truck,
   Wind,
+  X,
   Zap,
 } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -85,7 +86,8 @@ export default function HomePage() {
       products.filter(
         (product) =>
           (active === "All" || product.category === active) &&
-          product.name.toLowerCase().includes(query.toLowerCase()),
+          (product.name.toLowerCase().includes(query.toLowerCase()) ||
+           product.category.toLowerCase().includes(query.toLowerCase())),
       ),
     [active, query],
   );
@@ -111,7 +113,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-shell">
           <div className="hero-copy">
-            <span className="eyebrow"><span /> Designed for better days</span>
+            <span className="eyebrow"><span /> Gear Up. Live Smart.</span>
             <h1>Premium Mobile <span style={{ color: "var(--orange)" }}>Accessories &amp; Tech Gadgets</span> in Bangladesh</h1>
             <p>Thoughtfully designed gadgets that simplify your setup, power your day, and look good doing it.</p>
             <div className="hero-buttons">
@@ -184,18 +186,33 @@ export default function HomePage() {
           </div>
           <p>Designed around the way you actually live, work, and move.</p>
         </div>
-        <div className="collection-search">
-          <Search size={18} />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search the NEXO collection..."
-            aria-label="Search the NEXO collection"
-          />
+        <div className="collection-controls">
+          <div className="collection-search-box">
+            <div className="search-icon-wrapper">
+              <Search size={18} />
+            </div>
+            <input
+              id="collection-search-input"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                if (active !== "All") setActive("All");
+              }}
+              placeholder="Search products by name or category..."
+              aria-label="Search the NEXO collection"
+            />
+            {query ? (
+              <button onClick={() => setQuery("")} aria-label="Clear search" className="clear-btn">
+                <X size={15} />
+              </button>
+            ) : (
+              <span className="search-shortcut">Search</span>
+            )}
+          </div>
           {query && (
-            <button onClick={() => setQuery("")} aria-label="Clear search">
-              Clear
-            </button>
+            <div className="search-results-count">
+              Showing {filtered.length} {filtered.length === 1 ? "product" : "products"} for &ldquo;{query}&rdquo;
+            </div>
           )}
         </div>
         <div className="category-row" id="categories">
