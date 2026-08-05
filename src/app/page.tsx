@@ -158,14 +158,13 @@ export default function HomePage() {
 
       <section className="intro section-shell" id="intro">
         <div className="intro-inner">
+          <h2 className="intro-tagline">NEXO &mdash; Gear Up. Live Smart.</h2>
           <p>
             Welcome to <strong>NEXO</strong>, one of Bangladesh&rsquo;s fastest-growing technology accessories and gadget brands. We design and deliver premium mobile accessories, charging solutions, smart gadgets, wearable accessories, audio devices, and everyday tech essentials that combine performance, durability, and style.
           </p>
           <p>
             Whether you&rsquo;re looking for fast chargers, USB cables, wireless accessories, power banks, smart devices, or innovative technology products, NEXO provides reliable solutions that help you stay connected, productive, and ready for every day.
           </p>
-          <p className="intro-mission">Our mission is simple: make high-quality technology accessories accessible to everyone.</p>
-          <p className="intro-tagline"><strong>NEXO &mdash; Gear Up. Live Smart.</strong></p>
         </div>
       </section>
 
