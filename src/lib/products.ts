@@ -139,7 +139,7 @@ export const products: Product[] = [
     name: "SnapCharge 10K",
     category: "Power",
     price: 770,
-    oldPrice: 890,
+    oldPrice: 990,
     image: "/images/powerbank.png",
     label: "Fast charge",
     colors: ["#252526", "#dedbd1"],
