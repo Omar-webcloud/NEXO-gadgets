@@ -493,6 +493,7 @@ img {
 }
 
 .hero-tag {
+  display: none !important;
   position: absolute;
   z-index: 2;
   right: 4%;
@@ -937,11 +938,12 @@ img {
 .feature-image img, .feature-image video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   padding: clamp(18px, 2.5vw, 36px);
 }
 
 .feature-number {
+  display: none;
   position: absolute;
   left: 25px;
   bottom: 23px;
