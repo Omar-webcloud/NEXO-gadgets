@@ -29,8 +29,9 @@ import {
   Zap,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import { products } from "@/lib/products";
+import { products, COLOR_HEX_MAP } from "@/lib/products";
 import { useCart } from "@/lib/cart";
+import { ProductCardActions } from "@/components/product-card-actions";
 
 const categories = [
   { name: "All", icon: Sparkles },
@@ -236,9 +237,6 @@ export default function HomePage() {
                 <button className="heart" onClick={() => notify(`${product.name} saved to favorites`)} aria-label={`Save ${product.name}`}>
                   <Heart size={18} />
                 </button>
-                <button className="quick-add" onClick={() => addToCart(product)}>
-                  Quick add <Plus size={17} />
-                </button>
               </div>
               <div className="product-info">
                 <div>
@@ -250,15 +248,13 @@ export default function HomePage() {
                   <s>{formatBDT(product.oldPrice)}</s>
                 </div>
               </div>
-              <Link href={`/products/${product.slug}`} className="product-link">
-                View product <ArrowRight size={15} />
-              </Link>
               <div className="swatches">
                 {product.colors.map((color) => (
-                  <i key={color} style={{ background: color }} />
+                  <i key={color} style={{ background: COLOR_HEX_MAP[color] || color }} title={color} />
                 ))}
                 <span>{product.colors.length} colors</span>
               </div>
+              <ProductCardActions product={product} />
             </article>
           ))}
         </div>

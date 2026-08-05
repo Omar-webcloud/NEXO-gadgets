@@ -16,6 +16,47 @@ export type Product = {
   seoDescription: string;
 };
 
+export const COLOR_HEX_MAP: Record<string, string> = {
+  Black: "#3a3a38",
+  Silver: "#d6d4cd",
+  Gold: "#e7b676",
+  White: "#f0eee8",
+  "Off-White": "#e9e7dd",
+  Gray: "#9b9b94",
+  "Light Blue": "#a9c4cd",
+  Peach: "#e7b8a7",
+  Orange: "#e5a878",
+};
+
+/**
+ * Converts legacy hex codes to clear English color names for user display.
+ * If already an English color name, returns it as-is.
+ */
+export function formatColorName(color: string): string {
+  if (!color) return "Standard";
+  if (!color.startsWith("#")) return color;
+
+  const hexMap: Record<string, string> = {
+    "#3a3a38": "Black",
+    "#d6d4cd": "Silver",
+    "#e7b676": "Gold",
+    "#c9c8c3": "Silver",
+    "#343536": "Black",
+    "#f0eee8": "White",
+    "#9b9b94": "Gray",
+    "#e9e7dd": "Off-White",
+    "#a9c4cd": "Light Blue",
+    "#e7b8a7": "Peach",
+    "#252526": "Black",
+    "#dedbd1": "Silver",
+    "#eceae4": "White",
+    "#2f3031": "Black",
+    "#e5a878": "Orange",
+  };
+
+  return hexMap[color.toLowerCase()] || "Standard";
+}
+
 export const products: Product[] = [
   {
     id: 1,
@@ -26,7 +67,7 @@ export const products: Product[] = [
     oldPrice: 399,
     image: "/images/foldable-stand.jpg",
     label: "Bestseller",
-    colors: ["#3a3a38", "#d6d4cd", "#e7b676"],
+    colors: ["Black", "Silver", "Gold"],
     shortDescription: "Upgrade your workspace with the NEXO Foldable Phone & Tablet Stand for premium comfort and adjustable positioning.",
     description:
       "The NEXO Foldable Phone & Tablet Stand combines elegant design with functional adjustability, perfect for your desk, workspace, or travel setup.",
@@ -40,7 +81,7 @@ export const products: Product[] = [
       { label: "Material", value: "Premium metal + silicone grip" },
       { label: "Weight", value: "180g" },
       { label: "Compatibility", value: "4-10 inch devices" },
-      { label: "Colorways", value: "Multiple finishes" },
+      { label: "Colorways", value: "Black, Silver, Gold" },
     ],
     seoTitle: "NEXO Foldable Phone & Tablet Stand – Adjustable Desk Mount in Bangladesh",
     seoDescription:
@@ -55,7 +96,7 @@ export const products: Product[] = [
     oldPrice: 1199,
     image: "/images/rotatable magnetic laptop stand.webp",
     label: "New",
-    colors: ["#c9c8c3", "#343536"],
+    colors: ["Silver", "Black"],
     shortDescription: "Elevate your workstation with the NEXO Rotatable Magnetic Laptop & Phone Stand for premium metal construction and flexible positioning.",
     description:
       "The NEXO Rotatable Magnetic Laptop & Phone Stand keeps your devices elevated with 360-degree rotation and magnetic stability for an ergonomic workspace.",
@@ -84,7 +125,7 @@ export const products: Product[] = [
     oldPrice: 899,
     image: "/images/head massager.png",
     label: "Trending",
-    colors: ["#f0eee8", "#9b9b94"],
+    colors: ["White", "Gray"],
     shortDescription: "Relax and revitalize with the NEXO Smart Head Massager for hair growth stimulation and complete scalp care.",
     description:
       "The NEXO Smart Head Massager combines advanced massage technology with hair growth stimulation features designed to help you unwind and care for your scalp health.",
@@ -98,7 +139,7 @@ export const products: Product[] = [
       { label: "Battery", value: "Rechargeable USB-C" },
       { label: "Modes", value: "Multiple intensity settings" },
       { label: "Use case", value: "Head, scalp, and hair care" },
-      { label: "Finish", value: "Premium design" },
+      { label: "Finish", value: "White, Gray" },
     ],
     seoTitle: "NEXO Smart Head Massager – Hair Growth & Scalp Care in Bangladesh",
     seoDescription:
@@ -113,7 +154,7 @@ export const products: Product[] = [
     oldPrice: 650,
     image: "/images/mini-fan.png",
     label: "Fan favorite",
-    colors: ["#e9e7dd", "#a9c4cd", "#e7b8a7"],
+    colors: ["Off-White", "Light Blue", "Peach"],
     shortDescription: "A pocket-sized personal fan that keeps you cool wherever your day takes you.",
     description:
       "Breeze Mini Fan delivers everyday comfort in a compact design that fits neatly into bags, desks, and travel setups.",
@@ -142,7 +183,7 @@ export const products: Product[] = [
     oldPrice: 990,
     image: "/images/powerbank.png",
     label: "Fast charge",
-    colors: ["#252526", "#dedbd1"],
+    colors: ["Black", "Silver"],
     shortDescription: "A dependable 10,000mAh power bank for everyday charging without the bulk.",
     description:
       "SnapCharge 10K gives you dependable portable power in a slim profile that fits easily into your daily carry and keeps your devices ready throughout the day.",
@@ -171,7 +212,7 @@ export const products: Product[] = [
     oldPrice: 790,
     image: "/images/earbuds.png",
     label: "Top rated",
-    colors: ["#eceae4", "#2f3031", "#e5a878"],
+    colors: ["White", "Black", "Orange"],
     shortDescription: "Wireless earbuds designed for rich sound, stable connections, and long lasting daily listening.",
     description:
       "NEXO Buds Pro delivers immersive audio in a compact form, designed for calls, music, and everyday focus with reliable wireless performance.",

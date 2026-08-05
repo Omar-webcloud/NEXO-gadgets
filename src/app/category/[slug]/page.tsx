@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2, PackageSearch } from "lucide-react";
 import { catalogCategories, getCategoryBySlug, getCategoryProductsBySlug } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
+import { ProductCardActions } from "@/components/product-card-actions";
 
 function formatBDT(value: number) {
   return new Intl.NumberFormat("bn-BD", {
@@ -117,9 +118,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                   <s>{formatBDT(product.oldPrice)}</s>
                 </div>
               </div>
-              <Link href={`/products/${product.slug}`} className="product-link">
-                View product <ArrowRight size={15} />
-              </Link>
+              <ProductCardActions product={product} />
             </article>
           ))}
         </div>

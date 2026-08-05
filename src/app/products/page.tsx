@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, HelpCircle, PackageSearch, Sparkles } from "l
 import { products } from "@/lib/products";
 import { catalogCategories } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
+import { ProductCardActions } from "@/components/product-card-actions";
 
 export const metadata: Metadata = {
   title: "Products | NEXO Bangladesh",
@@ -145,9 +146,7 @@ export default function ProductsPage() {
                   <s>{formatBDT(product.oldPrice)}</s>
                 </div>
               </div>
-              <Link href={`/products/${product.slug}`} className="product-link">
-                View product <ArrowRight size={15} />
-              </Link>
+              <ProductCardActions product={product} />
             </article>
           ))}
         </div>

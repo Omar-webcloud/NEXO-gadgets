@@ -8,9 +8,9 @@ import { useCart } from "@/lib/cart";
 import { CartDrawer } from "./cart-drawer";
 
 const navLinks = [
+  { label: "About", href: "/#about" },
   { label: "Products", href: "/products" },
   { label: "Best sellers", href: "/products#best-sellers" },
-  { label: "About", href: "/#about" },
 ];
 
 function Logo() {
@@ -25,10 +25,19 @@ function Logo() {
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { items } = useCart();
   const [mounted, setMounted] = useState(false);
   
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   
   const cartCount = items.reduce((acc, i) => acc + i.quantity, 0);
 
@@ -43,7 +52,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${scrolled ? "site-header-scrolled" : ""}`}>
       <nav className="nav-shell" aria-label="Main navigation">
         <button className="icon-button mobile-only" onClick={() => setMenuOpen(true)} aria-label="Open menu">
           <Menu size={22} />
@@ -66,23 +75,21 @@ export function SiteHeader() {
           </button>
         </div>
       </nav>
-      {menuOpen && (
-        <div className="mobile-menu">
-          <div className="mobile-menu-top">
-            <Logo />
-            <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
-              <X />
-            </button>
-          </div>
-          <nav className="mobile-menu-links" aria-label="Mobile navigation">
-            {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} onClick={() => setMenuOpen(false)}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <div className="mobile-menu-top">
+          <Logo />
+          <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <X />
+          </button>
         </div>
-      )}
+        <nav className="mobile-menu-links" aria-label="Mobile navigation">
+          {navLinks.map((link) => (
+            <Link key={link.label} href={link.href} onClick={() => setMenuOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   );
@@ -122,9 +129,9 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Explore</h4>
+            <Link href="/#about">Our story</Link>
             <Link href="/products">Products</Link>
             <Link href="/products#best-sellers">Best sellers</Link>
-            <Link href="/#about">Our story</Link>
           </div>
         </div>
         <div className="footer-bottom">
