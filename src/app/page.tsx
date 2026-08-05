@@ -171,8 +171,8 @@ export default function HomePage() {
 
       <section className="benefits" aria-label="Store benefits">
         <div className="benefits-shell">
-          <div><Truck /><span><strong>Free express shipping</strong><small>On orders over ৳60</small></span></div>
-          <div><ShieldCheck /><span><strong>2-year warranty</strong><small>Built to go the distance</small></span></div>
+          <div><Truck /><span><strong>Free express shipping</strong><small>On orders over ৳1600</small></span></div>
+          <div><PackageCheck /><span><strong>Secure packaging</strong><small>Packed with care for safe delivery</small></span></div>
           <div><PackageCheck /><span><strong>3-day returns</strong><small>Unused items only</small></span></div>
           <div><Sparkles /><span><strong>Premium quality</strong><small>Tested. Refined. Reliable.</small></span></div>
         </div>
@@ -303,7 +303,7 @@ export default function HomePage() {
       <section className="quote section-shell">
         <span className="quote-mark">&ldquo;</span>
         <blockquote>
-          NEXO makes the things you use every day feel <em>considered, calm, and quietly brilliant.</em>
+          NEXO brings the things you use every day feel <em>considered, calm, and quietly brilliant.</em>
         </blockquote>
         <div className="press">
           <span>★★★★★ <small>4.9 / 5 from 2,400+ reviews</small></span>
