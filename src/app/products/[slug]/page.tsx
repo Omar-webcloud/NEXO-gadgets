@@ -33,11 +33,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: product.seoDescription,
     keywords: [
       product.name,
+      "NEXO gadgets",
+      "gadget shop in chittagong",
+      "gadget shop in chattogram",
+      "Gadgets in chittagong",
+      "Gadgets in chattogram",
       "NEXO",
       product.category,
       "Bangladesh",
-      "Mobile Accessories",
-      "Tech Gadgets",
+      "Mobile Accessories Chittagong",
+      "Tech Gadgets BD",
     ],
     alternates: { canonical: canonicalUrl },
     openGraph: {

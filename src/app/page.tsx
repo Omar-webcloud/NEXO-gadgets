@@ -16,6 +16,8 @@ import {
   Mail,
   MessageCircleMore,
   PackageCheck,
+  Phone,
+  PhoneCall,
   Plus,
   Search,
   Shield,
@@ -43,20 +45,20 @@ const categories = [
 ];
 
 const faqData = [
-  { q: "What is NEXO?", a: "NEXO is a Bangladeshi technology accessories brand that offers mobile accessories, charging products, smart gadgets, wearable accessories, audio products, and everyday technology essentials." },
-  { q: "What products does NEXO sell?", a: "NEXO offers mobile accessories, fast chargers, charging cables, USB cables, wireless chargers, power banks, earphones, wireless earbuds, Bluetooth speakers, smart gadgets, wearable accessories, phone holders, computer accessories, and lifestyle electronics." },
-  { q: "Is NEXO a Bangladeshi brand?", a: "Yes. NEXO is a growing Bangladeshi technology accessories brand focused on delivering quality products for modern consumers." },
-  { q: "Why choose NEXO?", a: "NEXO products are designed with a focus on quality, durability, performance, modern design, and affordability, making them suitable for everyday use." },
-  { q: "Where can I buy NEXO products?", a: "NEXO products are available through authorized retailers, online marketplaces, and the official NEXO website." },
+  { q: "Where is NEXO gadget shop located in Chittagong?", a: "NEXO is based in Chittagong (Chattogram), Bangladesh. We provide fast doorstep delivery across Chittagong city and express shipping nationwide to all 64 districts in Bangladesh." },
+  { q: "What gadgets and accessories does NEXO sell in Chittagong?", a: "NEXO offers premium phone and tablet stands, rotatable magnetic laptop stands, fast chargers, USB-C cables, power banks, wireless earbuds, scalp massage wellness gadgets, portable mini fans, and everyday lifestyle tech." },
+  { q: "Can I order gadgets in Chittagong with Cash on Delivery (COD)?", a: "Yes! NEXO offers Cash on Delivery (COD) for orders in Chittagong / Chattogram as well as throughout Bangladesh." },
+  { q: "Why is NEXO one of the best gadget shops in Chittagong?", a: "NEXO focuses on uncompromising build quality, premium materials, sleek ergonomics, 2-year warranty support, and affordable pricing." },
+  { q: "Where can I find NEXO on social media?", a: "You can find us on Instagram (@nexo_bd), Facebook (NEXO Gadgets - facebook.com/nexogadg3ts), TikTok (@nexogadg3ts), and YouTube (@NEXO-bd)." },
 ];
 
 const whyChooseData = [
   { icon: Award, title: "Premium Quality Materials", text: "Every product is built with carefully selected materials for longevity." },
   { icon: BatteryCharging, title: "Fast Charging Technology", text: "Reliable, certified fast charging compatible with all modern devices." },
-  { icon: Lightbulb, title: "Modern Product Design", text: "Sleek, functional designs that complement your lifestyle." },
+  { icon: Lightbulb, title: "Modern Product Design", text: "Sleek, functional designs that complement your lifestyle and setup." },
   { icon: Shield, title: "Strong Quality Control", text: "Every product passes rigorous testing before it reaches you." },
-  { icon: Star, title: "Affordable Pricing", text: "Premium features without the premium price tag." },
-  { icon: Globe, title: "Customer-Focused Support", text: "Responsive support to help you with anything you need." },
+  { icon: Star, title: "Affordable Pricing in BD", text: "Premium features without the premium price tag." },
+  { icon: Globe, title: "Chittagong & Nationwide Support", text: "Responsive customer care based in Chittagong to assist you anytime." },
 ];
 
 const aboutCategories = [
@@ -115,26 +117,26 @@ export default function HomePage() {
         <div className="hero-shell">
           <div className="hero-copy">
             <span className="eyebrow"><span /> Gear Up. Live Smart.</span>
-            <h1>Premium Mobile <span style={{ color: "var(--orange)" }}>Accessories &amp; Tech Gadgets</span> in Bangladesh</h1>
-            <p>Thoughtfully designed gadgets that simplify your setup, power your day, and look good doing it.</p>
+            <h1>Best <span style={{ color: "var(--orange)" }}>Gadget Shop in Chittagong</span> &amp; Mobile Accessories in Bangladesh</h1>
+            <p>Thoughtfully designed NEXO gadgets that simplify your setup, power your day, and look good doing it. Fast delivery in Chittagong (Chattogram) and across Bangladesh.</p>
             <div className="hero-buttons">
               <Link className="button button-dark" href="/products#best-sellers">
                 Shop best sellers <ArrowRight size={17} />
               </Link>
-              <a className="text-link" href="#about">Why NEXO <ArrowRight size={16} /></a>
+              <Link className="text-link" href="/contact">Visit Chittagong Hub <ArrowRight size={16} /></Link>
             </div>
             <div className="hero-proof">
               <div className="avatars"><span>JK</span><span>SA</span><span>MR</span></div>
               <div>
                 <strong>4.9 <span>★★★★★</span></strong>
-                <small>Loved by 12,000+ customers</small>
+                <small>Loved by 12,000+ customers across Bangladesh</small>
               </div>
             </div>
           </div>
           <div className="hero-visual">
             <img
               src="/images/foldable-stand.jpg"
-              alt="NEXO FlexFold premium phone stand holding a smartphone, mobile accessory from Bangladesh"
+              alt="NEXO FlexFold premium phone stand holding a smartphone, top mobile accessory from NEXO gadget shop in Chittagong"
               loading="eager"
               fetchPriority="high"
               decoding="async"
@@ -159,12 +161,12 @@ export default function HomePage() {
 
       <section className="intro section-shell" id="intro">
         <div className="intro-inner">
-          <h2 className="intro-tagline">NEXO &mdash; Gear Up. Live Smart.</h2>
+          <h2 className="intro-tagline">NEXO &mdash; Premier Gadget Shop in Chittagong</h2>
           <p>
-            Welcome to <strong>NEXO</strong>, one of Bangladesh&rsquo;s fastest-growing technology accessories and gadget brands. We design and deliver premium mobile accessories, charging solutions, smart gadgets, wearable accessories, audio devices, and everyday tech essentials that combine performance, durability, and style.
+            Welcome to <strong>NEXO Gadgets</strong>, one of Chittagong and Bangladesh&rsquo;s fastest-growing technology accessories and smart gadget brands. We design and deliver premium mobile accessories, charging solutions, smart gadgets, wearable accessories, audio devices, and everyday tech essentials that combine performance, durability, and modern style.
           </p>
           <p>
-            Whether you&rsquo;re looking for fast chargers, USB cables, wireless accessories, power banks, smart devices, or innovative technology products, NEXO provides reliable solutions that help you stay connected, productive, and ready for every day.
+            Whether you&rsquo;re looking for gadgets in Chittagong (Chattogram), fast chargers, USB cables, wireless audio accessories, power banks, or ergonomic laptop stands, NEXO provides reliable solutions that help you stay connected, productive, and ready for every day.
           </p>
         </div>
       </section>
@@ -334,12 +336,12 @@ export default function HomePage() {
         <div className="about-inner">
           <div className="about-text">
             <span className="eyebrow"><span /> Our story</span>
-            <h2>About NEXO</h2>
+            <h2>About NEXO Gadgets</h2>
             <p>
-              NEXO is a Bangladeshi consumer electronics and mobile accessories brand specializing in modern technology products for everyday use. We combine quality, performance, durability, and modern design to help people stay connected, productive, and entertained.
+              NEXO is a Bangladeshi consumer electronics and mobile accessories brand headquartered in Chittagong (Chattogram), specializing in modern technology products for everyday use. We combine premium quality, performance, durability, and contemporary design to help people stay connected and productive.
             </p>
             <p>
-              From fast chargers and cables to wireless audio and smart devices, NEXO delivers reliable technology designed for everyday life. Our mission is to make high-quality technology accessories accessible to everyone in Bangladesh and beyond.
+              From adjustable phone stands and fast chargers to wireless earbuds and scalp massage devices, NEXO delivers reliable gadgets in Chittagong and all across Bangladesh with fast home delivery and warranty support.
             </p>
           </div>
           <div className="about-categories">
@@ -380,17 +382,17 @@ export default function HomePage() {
         <div className="contact-inner">
           <div className="contact-copy">
             <span className="eyebrow light"><span /> Let&apos;s talk</span>
-            <h2>Get in Touch</h2>
-            <p style={{ color: "#fff" }}>Have a question or want to place a custom order? Reach us via WhatsApp or email, or send us a quick message below.</p>
+            <h2>Get in Touch with NEXO</h2>
+            <p style={{ color: "#fff" }}>Looking for gadget shopping in Chittagong, order updates, or custom support? Reach us via WhatsApp or click contact to call &amp; view full store details.</p>
             <div className="contact-info">
-              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="WhatsApp NEXO">
+              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="WhatsApp NEXO Gadgets">
                 <span className="contact-link-icon"><MessageCircleMore size={18} /></span>
                 <span style={{ color: "#111" }}>WhatsApp</span>
               </a>
-              <a href="mailto:nexogadg3ts@gmail.com" className="contact-link" aria-label="Email NEXO">
-                <span className="contact-link-icon"><Mail size={18} /></span>
-                <span style={{ color: "#111" }}>Email</span>
-              </a>
+              <Link href="/contact" className="contact-link" aria-label="Contact NEXO">
+                <span className="contact-link-icon"><PhoneCall size={18} /></span>
+                <span style={{ color: "#111" }}>Contact</span>
+              </Link>
             </div>
           </div>
           <form

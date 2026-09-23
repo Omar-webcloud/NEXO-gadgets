@@ -1,54 +1,100 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, HelpCircle, PackageSearch, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Headphones,
+  Heart,
+  HelpCircle,
+  Laptop,
+  PackageSearch,
+  Sparkles,
+  Wind,
+  Zap,
+} from "lucide-react";
 import { products } from "@/lib/products";
 import { catalogCategories } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
 import { ProductCardActions } from "@/components/product-card-actions";
 
 export const metadata: Metadata = {
-  title: "Products | NEXO Bangladesh",
+  title: "All Products | NEXO Gadgets Chittagong & Bangladesh",
   description:
-    "Explore NEXO Bangladesh products, including premium stands, power banks, audio accessories, wellness gadgets, and everyday tech essentials.",
+    "Explore NEXO Gadgets in Chittagong (Chattogram), Bangladesh. Shop premium phone & laptop stands, fast charging power banks, wireless earbuds, and wellness gadgets with fast delivery.",
+  keywords: [
+    "NEXO gadgets",
+    "gadget shop in chittagong",
+    "gadget shop in chattogram",
+    "Gadgets in chittagong",
+    "Gadgets in chattogram",
+    "best gadget shop in chittagong",
+    "buy gadgets chittagong",
+    "mobile accessories bangladesh",
+  ],
   alternates: { canonical: "/products" },
+};
+
+const categoryIconMap: Record<string, any> = {
+  stands: Laptop,
+  "power-banks": Zap,
+  audio: Headphones,
+  lifestyle: Wind,
+  wellness: Heart,
 };
 
 const categoryHighlights = [
   {
     icon: Sparkles,
     title: "Curated by use case",
-    text: "Find products organized by real-world needs, not just by warehouse buckets.",
+    text: "Find products organized by real-world needs.",
   },
   {
     icon: PackageSearch,
-    title: "Built for discovery",
-    text: "Each category and product has its own URL so shoppers and search engines can find them easily.",
+    title: "Chittagong & BD Delivery",
+    text: "Doorstep delivery across Chittagong and nationwide.",
   },
   {
     icon: CheckCircle2,
-    title: "Details that matter",
-    text: "Every product page includes pricing, specs, compatibility notes, and shopping info.",
+    title: "Warranty & Support",
+    text: "All items include warranty and dedicated customer care.",
   },
 ];
 
 const faqData = [
   {
-    q: "What kind of products does NEXO sell?",
-    a: "NEXO offers mobile accessories, phone and laptop stands, power banks, wireless audio products, wellness gadgets, and everyday tech essentials for modern users in Bangladesh.",
+    q: "Where can I buy NEXO gadgets in Chittagong (Chattogram)?",
+    a: "You can order all NEXO gadgets directly online with fast home delivery and Cash on Delivery across Chittagong city, Chattogram division, and all 64 districts in Bangladesh.",
   },
   {
-    q: "Are NEXO products available in Bangladesh?",
-    a: "Yes. NEXO is focused on Bangladesh and offers tech accessories designed for local shoppers, daily use, and fast delivery support.",
+    q: "What products does NEXO Gadgets specialize in?",
+    a: "NEXO specializes in premium mobile accessories, adjustable phone stands, 360-degree rotatable magnetic laptop stands, 10,000mAh fast-charging power banks, wireless earbuds, and smart scalp wellness gadgets.",
   },
   {
-    q: "How do I choose the right NEXO product?",
-    a: "Start with the category that matches your need, then open the product page to compare features, price, specs, compatibility, and use cases.",
+    q: "How fast is delivery for gadget orders in Chittagong?",
+    a: "Orders within Chittagong are dispatched rapidly and generally delivered within 24 to 48 hours. Nationwide express delivery takes 2 to 4 business days.",
   },
   {
-    q: "Do NEXO products include warranty or return support?",
-    a: "Product pages include shopping details such as warranty support, delivery information, and return guidance where available.",
+    q: "Do NEXO products come with official warranty support?",
+    a: "Yes. All NEXO products come with dedicated warranty coverage, safe transit packaging, and responsive after-sales service.",
+  },
+  {
+    q: "How can I contact NEXO for product advice or order support?",
+    a: "You can reach us instantly via WhatsApp at +8801796073736, on our official Instagram (@nexo_bd), Facebook page, or via our dedicated Contact page.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 
 const itemListSchema = {
   "@context": "https://schema.org",
@@ -84,49 +130,47 @@ export default function ProductsPage() {
     <main className="catalog-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="catalog-hero section-shell">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow"><span /> NEXO products</span>
-            <h1>Separate product pages, organized for search and shopping.</h1>
-          </div>
-        </div>
-        <div className="catalog-highlights">
-          {categoryHighlights.map(({ icon: Icon, title, text }) => (
-            <article key={title} className="catalog-highlight">
-              <Icon size={18} />
-              <h2>{title}</h2>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="catalog-section section-shell" aria-label="Browse categories">
-        <div className="section-heading">
+      {/* Top Section: Compact Categories */}
+      <section className="catalog-section catalog-top-categories section-shell" aria-label="Browse categories">
+        <div className="section-heading compact-heading">
           <div>
             <span className="eyebrow"><span /> Categories</span>
-            <h2>Shop by category</h2>
+            <h1>Shop by Category</h1>
           </div>
         </div>
-        <div className="catalog-categories">
-          {catalogCategories.map((category) => (
-            <Link key={category.slug} href={`/category/${category.slug}`} className="catalog-category-card">
-              <span>{category.name}</span>
-              <strong>{category.seoTitle}</strong>
-              <p>{category.summary}</p>
-              <em>View category <ArrowRight size={15} /></em>
-            </Link>
-          ))}
+        <div className="compact-categories-grid">
+          {catalogCategories.map((category) => {
+            const Icon = categoryIconMap[category.slug] || Sparkles;
+            const count = products.filter((p) => p.category === category.name).length;
+            return (
+              <Link
+                key={category.slug}
+                href={`/category/${category.slug}`}
+                className="compact-category-card"
+                title={`Shop ${category.name} gadgets`}
+              >
+                <div className="compact-cat-icon">
+                  <Icon size={20} />
+                </div>
+                <div className="compact-cat-info">
+                  <strong>{category.name}</strong>
+                  <span>{count} {count === 1 ? "Item" : "Items"}</span>
+                </div>
+                <ArrowRight size={15} className="compact-cat-arrow" />
+              </Link>
+            );
+          })}
         </div>
       </section>
 
+      {/* Featured Products Grid */}
       <section className="catalog-section catalog-products section-shell" id="best-sellers">
         <div className="section-heading">
           <div>
-            <span className="eyebrow"><span /> Best sellers</span>
-            <h2>Popular products</h2>
+            <span className="eyebrow"><span /> Browse All</span>
+            <h2>Featured Gadgets</h2>
           </div>
         </div>
         <div className="product-grid">
@@ -152,12 +196,34 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* NEXO Collection & Highlights Section (placed below featured products) */}
+      <section className="catalog-hero catalog-collection-info section-shell">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow"><span /> NEXO Collection</span>
+            <h2>All Products &amp; Accessories</h2>
+          </div>
+          <p>Premium tech gadgets and mobile accessories designed for everyday use in Bangladesh.</p>
+        </div>
+        <div className="catalog-highlights">
+          {categoryHighlights.map(({ icon: Icon, title, text }) => (
+            <article key={title} className="catalog-highlight">
+              <Icon size={18} />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* SEO-Friendly FAQ at the bottom */}
       <section className="catalog-section products-faq section-shell">
         <div className="section-heading">
           <div>
-            <span className="eyebrow"><span /> FAQ</span>
-            <h2>Questions about NEXO products</h2>
+            <span className="eyebrow"><span /> Help &amp; FAQs</span>
+            <h2>Frequently Asked Questions</h2>
           </div>
+          <p>Everything you need to know about buying gadgets in Chittagong and Bangladesh from NEXO.</p>
         </div>
         <div className="products-faq-grid">
           {faqData.map((item) => (
