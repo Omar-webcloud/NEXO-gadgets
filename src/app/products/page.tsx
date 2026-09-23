@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  CheckCircle2,
   Headphones,
   Heart,
   HelpCircle,
   Laptop,
-  PackageSearch,
   Sparkles,
   Wind,
   Zap,
@@ -41,24 +39,6 @@ const categoryIconMap: Record<string, any> = {
   lifestyle: Wind,
   wellness: Heart,
 };
-
-const categoryHighlights = [
-  {
-    icon: Sparkles,
-    title: "Curated by use case",
-    text: "Find products organized by real-world needs.",
-  },
-  {
-    icon: PackageSearch,
-    title: "Chittagong & BD Delivery",
-    text: "Doorstep delivery across Chittagong and nationwide.",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Warranty & Support",
-    text: "All items include warranty and dedicated customer care.",
-  },
-];
 
 const faqData = [
   {
@@ -191,26 +171,6 @@ export default function ProductsPage() {
                 </div>
               </div>
               <ProductCardActions product={product} />
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* NEXO Collection & Highlights Section (placed below featured products) */}
-      <section className="catalog-hero catalog-collection-info section-shell">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow"><span /> NEXO Collection</span>
-            <h2>All Products &amp; Accessories</h2>
-          </div>
-          <p>Premium tech gadgets and mobile accessories designed for everyday use in Bangladesh.</p>
-        </div>
-        <div className="catalog-highlights">
-          {categoryHighlights.map(({ icon: Icon, title, text }) => (
-            <article key={title} className="catalog-highlight">
-              <Icon size={18} />
-              <h3>{title}</h3>
-              <p>{text}</p>
             </article>
           ))}
         </div>
