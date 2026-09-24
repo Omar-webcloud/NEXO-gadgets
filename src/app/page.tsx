@@ -125,8 +125,20 @@ export default function HomePage() {
               <Link href="/contact" className="button button-hero-outline">Contact us <ChevronRight size={15} /></Link>
             </div>
             <div className="hero-signal-row" aria-label="NEXO shopping highlights">
-              <span className="hero-signal-card"><Globe size={16} /><strong>64</strong><small>districts delivered</small></span>
-              <span className="hero-signal-card"><ShieldCheck size={16} /><strong>COD</strong><small>available nationwide</small></span>
+              <span className="hero-signal-card">
+                <Globe size={18} />
+                <div className="hero-signal-text">
+                  <strong>64</strong>
+                  <small>districts delivered</small>
+                </div>
+              </span>
+              <span className="hero-signal-card">
+                <ShieldCheck size={18} />
+                <div className="hero-signal-text">
+                  <strong>COD</strong>
+                  <small>available nationwide</small>
+                </div>
+              </span>
             </div>
           </div>
           <div className="hero-visual">
@@ -225,9 +237,6 @@ export default function HomePage() {
                   decoding="async"
                 />
                 <span className="product-label">{product.label}</span>
-                <button className="heart" onClick={() => notify(`${product.name} saved to favorites`)} aria-label={`Save ${product.name}`}>
-                  <Heart size={18} />
-                </button>
               </div>
               <div className="product-info">
                 <div>
@@ -238,12 +247,6 @@ export default function HomePage() {
                   <strong>{formatBDT(product.price)}</strong>
                   <s>{formatBDT(product.oldPrice)}</s>
                 </div>
-              </div>
-              <div className="swatches">
-                {product.colors.map((color) => (
-                  <i key={color} style={{ background: COLOR_HEX_MAP[color] || color }} title={color} />
-                ))}
-                <span>{product.colors.length} colors</span>
               </div>
               <ProductCardActions product={product} />
             </article>
@@ -373,14 +376,12 @@ export default function HomePage() {
             <span className="eyebrow light"><span /> Let&apos;s talk</span>
             <h2>Get in Touch with NEXO</h2>
             <p style={{ color: "#fff" }}>Looking for gadget shopping in Chittagong, order updates, or custom support? Reach us via WhatsApp or click contact to call &amp; view full store details.</p>
-            <div className="contact-info">
-              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="contact-link button button-light" aria-label="WhatsApp NEXO Gadgets">
-                <span className="contact-link-icon"><MessageCircleMore size={18} /></span>
-                <span>WhatsApp</span>
+            <div className="hero-actions">
+              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="button button-light" aria-label="WhatsApp NEXO Gadgets">
+                WhatsApp <MessageCircleMore size={16} />
               </a>
-              <Link href="/contact" className="contact-link button button-hero-outline" aria-label="Contact NEXO">
-                <span className="contact-link-icon"><PhoneCall size={18} /></span>
-                <span>Contact</span>
+              <Link href="/contact" className="button button-hero-outline" aria-label="Contact NEXO">
+                Contact us <ChevronRight size={15} />
               </Link>
             </div>
           </div>

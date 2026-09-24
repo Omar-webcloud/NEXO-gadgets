@@ -68,19 +68,10 @@ export function CartDrawer({ open, onClose }: { open: boolean; onClose: () => vo
             </p>
             <Link
               href="/checkout"
-              className="button button-dark"
-              style={{
-                width: "100%",
-                marginTop: "20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-                textDecoration: "none",
-              }}
+              className="button button-light"
               onClick={onClose}
             >
-              Proceed to Checkout <ArrowRight size={18} />
+              Proceed to Checkout <ArrowRight size={16} />
             </Link>
           </div>
         )}
