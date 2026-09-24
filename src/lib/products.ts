@@ -85,7 +85,7 @@ export const products: Product[] = [
     ],
     seoTitle: "NEXO Foldable Phone & Tablet Stand – Adjustable Desk Mount in Bangladesh",
     seoDescription:
-      "Shop the NEXO Foldable Phone & Tablet Stand by NEXO—an adjustable premium stand for desks, travel, and everyday use in Bangladesh.",
+      "Shop the NEXO Foldable Phone & Tablet Stand by NEXO, an adjustable premium stand for desks, travel, and everyday use in Bangladesh.",
   },
   {
     id: 2,

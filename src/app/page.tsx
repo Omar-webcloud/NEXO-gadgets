@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   Award,
+  BadgeCheck,
     Check,
   BatteryCharging,
   ChevronRight,
@@ -19,6 +20,7 @@ import {
   Phone,
   PhoneCall,
   Plus,
+  RotateCcw,
   Search,
   Shield,
   ShieldCheck,
@@ -118,7 +120,7 @@ export default function HomePage() {
             <span className="hero-kicker"><span className="hero-kicker-dot" /> NEXO / curated tech essentials</span>
             <h1>Best Gadgets in <em>Chittagong, Bangladesh</em></h1>
             <p className="hero-lede">
-              Discover useful, stylish gadgets for work, travel, entertainment, and everyday life — curated in Chittagong and delivered across Bangladesh.
+              Discover useful, stylish gadgets for work, travel, entertainment, and everyday life, curated in Chittagong and delivered across Bangladesh.
             </p>
             <div className="hero-actions">
               <Link href="/products#best-sellers" className="button button-light">Best sellers <ArrowRight size={16} /></Link>
@@ -162,7 +164,7 @@ export default function HomePage() {
 
       <section className="intro section-shell" id="intro">
         <div className="intro-inner">
-          <h2 className="intro-tagline">NEXO &mdash; Premier Gadget Shop in Chittagong</h2>
+          <h2 className="intro-tagline">NEXO &mdash; Premium Gadget Shop in Chittagong</h2>
           <p>
             Welcome to <strong>NEXO Gadgets</strong>, one of Chittagong and Bangladesh&rsquo;s fastest-growing technology accessories and smart gadget brands. We design and deliver premium mobile accessories, charging solutions, smart gadgets, wearable accessories, audio devices, and everyday tech essentials that combine performance, durability, and modern style.
           </p>
@@ -176,8 +178,8 @@ export default function HomePage() {
         <div className="benefits-shell">
           <div><Truck /><span><strong>Free express shipping</strong><small>On orders over ৳1600</small></span></div>
           <div><PackageCheck /><span><strong>Secure packaging</strong><small>Packed with care for safe delivery</small></span></div>
-          <div><PackageCheck /><span><strong>3-day returns</strong><small>Unused items only</small></span></div>
-          <div><Sparkles /><span><strong>Premium quality</strong><small>Tested. Refined. Reliable.</small></span></div>
+          <div><RotateCcw /><span><strong>3-day returns</strong><small>Unused items only</small></span></div>
+          <div><BadgeCheck /><span><strong>Premium quality</strong><small>Tested. Refined. Reliable.</small></span></div>
         </div>
       </section>
 

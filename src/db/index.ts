@@ -33,7 +33,7 @@ export function getDb(): NodePgDatabase {
   return _db;
 }
 
-/** @deprecated Import `getDb` instead — kept for backward compatibility. */
+/** @deprecated Import `getDb` instead, kept for backward compatibility. */
 export const db = new Proxy({} as NodePgDatabase, {
   get(_target, prop, receiver) {
     return Reflect.get(getDb(), prop, receiver);

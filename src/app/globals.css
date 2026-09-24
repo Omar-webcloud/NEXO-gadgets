@@ -5197,7 +5197,7 @@ footer {
   display: none;
 }
 
-/* hero-signal-row secondary rules removed — see consolidated block */
+/* hero-signal-row secondary rules removed, see consolidated block */
 
 .hero-visual {
   min-height: clamp(480px, 64vh, 660px);

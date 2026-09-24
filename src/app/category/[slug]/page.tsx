@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, PackageSearch } from "lucide-react";
+import { ArrowLeft, ArrowRight, PackageSearch } from "lucide-react";
 import { catalogCategories, getCategoryBySlug, getCategoryProductsBySlug } from "@/lib/catalog";
 import { SITE_URL } from "@/lib/site";
 import { ProductCardActions } from "@/components/product-card-actions";
@@ -124,31 +124,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <section className="section-shell">
-        <div className="section-heading">
-          <div>
-            <span className="eyebrow"><span /> What to expect</span>
-            <h2>Why category pages help</h2>
-          </div>
-          <p>
-            Category pages create a strong internal linking structure, which makes it easier for search engines to discover the individual product URLs.
-          </p>
-        </div>
-        <div className="feature-list">
-          <div className="feature-item">
-            <CheckCircle2 size={18} />
-            <span>One focused topic per page</span>
-          </div>
-          <div className="feature-item">
-            <CheckCircle2 size={18} />
-            <span>Cleaner navigation for shoppers</span>
-          </div>
-          <div className="feature-item">
-            <CheckCircle2 size={18} />
-            <span>Better crawling through descriptive links</span>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

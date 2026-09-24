@@ -137,6 +137,7 @@ const localBusinessSchema = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "NEXO Gadgets",
   alternateName: "NEXO",
   url: SITE_URL,

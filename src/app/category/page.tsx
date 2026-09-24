@@ -19,9 +19,6 @@ export default function CategoryIndexPage() {
             <span className="eyebrow"><span /> Product categories</span>
             <h1>Find the right category faster.</h1>
           </div>
-          <p>
-            These category pages keep the catalog organized and give every shopping topic its own URL for SEO and discovery.
-          </p>
         </div>
       </section>
 
