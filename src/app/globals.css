@@ -3468,6 +3468,245 @@ footer .footer-top > div:not(:first-child) a:hover {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-shell {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero-copy {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 42px 0 34px;
+  }
+
+  .hero-copy::before {
+    left: 0;
+    top: 42px;
+    height: 66px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 10vw, 68px);
+  }
+
+  .hero-visual {
+    min-height: 390px;
+    border-radius: 0;
+  }
+
+  .floating-card {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .floating-card > span {
+    display: none;
+  }
+
+  .floating-card small,
+  .floating-card strong {
+    font-family: Georgia, serif;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(24, 25, 20, 0.76);
+  }
+}
+
+/* Editorial hero treatment: image-led, quiet, and typographic rather than widget-like. */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(247, 246, 241, 0.96) 0%, rgba(247, 246, 241, 0.72) 48%, rgba(232, 226, 215, 0.2) 100%),
+    var(--paper);
+}
+
+.hero-shell {
+  grid-template-columns: minmax(0, 43%) minmax(0, 57%);
+  min-height: clamp(560px, 72vh, 760px);
+  padding-top: clamp(34px, 6vw, 82px);
+  padding-bottom: clamp(34px, 6vw, 82px);
+}
+
+.hero-copy {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: clamp(24px, 4vw, 58px) clamp(18px, 3vw, 42px) clamp(24px, 4vw, 58px) 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy::before {
+  content: "";
+  width: 1px;
+  height: 96px;
+  background: var(--orange);
+  position: absolute;
+  left: -18px;
+  top: clamp(24px, 4vw, 58px);
+}
+
+.hero h1 {
+  max-width: 590px;
+  font-size: clamp(42px, 5.6vw, 82px);
+  line-height: 0.93;
+  letter-spacing: -0.055em;
+  margin: 22px 0 22px;
+}
+
+.hero-copy > p {
+  max-width: 390px;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.hero-buttons {
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.hero-buttons .button-dark {
+  box-shadow: 8px 8px 0 rgba(255, 118, 20, 0.2);
+}
+
+.text-link {
+  border-bottom: 1px solid rgba(24, 25, 20, 0.38);
+  padding-bottom: 4px;
+}
+
+.hero-proof {
+  border-top: 1px solid rgba(24, 25, 20, 0.18);
+  padding-top: 16px;
+  margin-top: 34px;
+  max-width: 390px;
+}
+
+.avatars {
+  display: none;
+}
+
+.hero-proof small {
+  margin-top: 5px;
+}
+
+.hero-visual {
+  border-radius: 0;
+  background: linear-gradient(145deg, #ebe5da 0%, #d8d0c2 100%);
+  box-shadow: none;
+  min-height: 520px;
+}
+
+.hero-visual > img {
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+
+.hero-visual::before {
+  content: "NEXO / 01\A FLEXFOLD\A Everyday hardware, considered.";
+  white-space: pre;
+  position: absolute;
+  z-index: 3;
+  left: 24px;
+  bottom: 22px;
+  color: rgba(24, 25, 20, 0.72);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.floating-card {
+  min-width: 0;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.floating-card > span {
+  display: none;
+}
+
+.floating-card small,
+.floating-card strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(24, 25, 20, 0.76);
+}
+
+.float-top {
+  right: 24px;
+  top: 24px;
+}
+
+.float-bottom {
+  left: auto;
+  right: 24px;
+  bottom: 72px;
+}
+
+.hero-tag {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background: var(--paper);
+  }
+
+  .hero-shell {
+    min-height: 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .hero-copy {
+    padding: 42px 0 34px;
+  }
+
+  .hero-copy::before {
+    left: 0;
+    top: 42px;
+    height: 66px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 13vw, 66px);
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .hero-visual > img {
+    object-position: center;
+  }
+
+  .float-top,
+  .float-bottom {
+    right: 16px;
+  }
+}
+
 @media (min-width: 480px) and (max-width: 768px) {
   .product-card-actions {
     grid-template-columns: 1fr 1fr;
@@ -4178,16 +4417,45 @@ footer .footer-top > div:not(:first-child) a:hover {
 }
 
 .newsletter .contact-form {
-  background: rgba(29, 31, 27, 0.46);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: var(--glass-shadow-heavy);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12));
+  border-color: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 26px 70px rgba(29, 31, 27, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 0 0 1px rgba(255, 118, 20, 0.2);
+  backdrop-filter: blur(26px) saturate(135%);
+  -webkit-backdrop-filter: blur(26px) saturate(135%);
 }
 
 .newsletter .contact-input,
 .newsletter .contact-textarea {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.48);
+  color: #fff;
+  box-shadow: inset 0 1px 8px rgba(29, 31, 27, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
+}
+
+.newsletter .contact-input::placeholder,
+.newsletter .contact-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.newsletter .contact-input:focus,
+.newsletter .contact-textarea:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 176, 111, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 118, 20, 0.2), inset 0 1px 8px rgba(29, 31, 27, 0.12);
+}
+
+.newsletter .contact-form .button-dark {
+  background: linear-gradient(110deg, #ffb06f 0%, #ff7614 52%, #df4e0b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.42);
   color: var(--ink);
+  box-shadow: 0 12px 26px rgba(255, 118, 20, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.newsletter .contact-form .button-dark:hover {
+  background: linear-gradient(110deg, #ffc38f 0%, #ff862d 52%, #ee5d14 100%);
+  box-shadow: 0 16px 32px rgba(255, 118, 20, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .catalog-page,
@@ -4330,6 +4598,364 @@ footer {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* Reference-inspired collage hero. */
+.hero {
+  background: #07111d;
+  color: #f7f6f1;
+  overflow: hidden;
+}
+
+.hero-shell {
+  max-width: 1440px;
+  min-height: min(760px, calc(100vh - 102px));
+  padding: 0 var(--page-gutter);
+  display: grid;
+  grid-template-columns: minmax(240px, 0.74fr) minmax(0, 1.26fr);
+  gap: clamp(22px, 4vw, 64px);
+  align-items: center;
+}
+
+.hero-copy {
+  padding: 0;
+  position: relative;
+  z-index: 4;
+}
+
+.hero-copy h1 {
+  max-width: 470px;
+  margin: 0;
+  color: #f7f6f1;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5.2vw, 78px);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.hero-visual {
+  min-height: clamp(560px, 76vh, 740px);
+  overflow: visible;
+  background: transparent;
+  position: relative;
+}
+
+.hero-panel {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid rgba(185, 204, 222, 0.3);
+  background: #101d2b;
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.28);
+}
+
+.hero-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+
+.hero-panel-main {
+  inset: 13% 6% 3% 14%;
+  transform: rotate(2deg);
+  background: linear-gradient(145deg, #182944, #06101c 68%);
+}
+
+.hero-panel-main img {
+  object-position: center;
+  mix-blend-mode: normal;
+}
+
+.hero-panel-power {
+  width: 48%;
+  height: 35%;
+  top: 0;
+  left: 0;
+  transform: rotate(-3deg);
+  background: linear-gradient(145deg, #2d172a, var(--orange));
+}
+
+.hero-panel-audio {
+  width: 44%;
+  height: 29%;
+  right: 0;
+  bottom: 2%;
+  transform: rotate(4deg);
+  background: #122d3a;
+}
+
+.hero-panel-wellness {
+  width: 38%;
+  height: 23%;
+  left: 0;
+  bottom: 0;
+  transform: rotate(-5deg);
+  background: linear-gradient(145deg, #3a1e17, #142433);
+}
+
+@media (max-width: 768px) {
+  .hero-shell {
+    min-height: 0;
+    padding-top: 56px;
+    padding-bottom: 36px;
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .hero-copy h1 {
+    max-width: 560px;
+    font-size: clamp(46px, 13vw, 70px);
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+}
+
+/* Final cascade for the editorial hero, after the shared glass surfaces. */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(247, 246, 241, 0.96) 0%, rgba(247, 246, 241, 0.72) 48%, rgba(232, 226, 215, 0.2) 100%),
+    var(--paper);
+}
+
+.hero-shell {
+  grid-template-columns: minmax(0, 43%) minmax(0, 57%);
+  min-height: clamp(560px, 72vh, 760px);
+  padding-top: clamp(34px, 6vw, 82px);
+  padding-bottom: clamp(34px, 6vw, 82px);
+}
+
+.hero-copy {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: clamp(24px, 4vw, 58px) clamp(18px, 3vw, 42px) clamp(24px, 4vw, 58px) 0;
+}
+
+.hero h1 {
+  max-width: 590px;
+  font-size: clamp(42px, 5.6vw, 82px);
+  line-height: 0.93;
+  letter-spacing: -0.055em;
+  margin: 22px 0;
+}
+
+.hero-copy > p {
+  max-width: 390px;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.65;
+}
+
+.hero-buttons {
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.hero-buttons .button-dark {
+  box-shadow: 8px 8px 0 rgba(255, 118, 20, 0.2);
+}
+
+.text-link {
+  border-bottom: 1px solid rgba(24, 25, 20, 0.38);
+  padding-bottom: 4px;
+}
+
+.hero-proof {
+  border-top: 1px solid rgba(24, 25, 20, 0.18);
+  padding-top: 16px;
+  margin-top: 34px;
+  max-width: 390px;
+}
+
+.hero-proof .avatars {
+  display: none;
+}
+
+.hero-visual {
+  border-radius: 0;
+  background: linear-gradient(145deg, #ebe5da 0%, #d8d0c2 100%);
+  box-shadow: none;
+  min-height: 520px;
+}
+
+.hero-visual > img {
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+
+.hero-visual::before {
+  content: "NEXO / 01\A FLEXFOLD\A Everyday hardware, considered.";
+  white-space: pre;
+  position: absolute;
+  z-index: 3;
+  left: 24px;
+  bottom: 22px;
+  color: rgba(24, 25, 20, 0.72);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.floating-card {
+  min-width: 0;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.floating-card > span,
+.hero-tag {
+  display: none !important;
+}
+
+.floating-card small,
+.floating-card strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(24, 25, 20, 0.76);
+}
+
+.float-top {
+  right: 24px;
+  top: 24px;
+}
+
+.float-bottom {
+  left: auto;
+  right: 24px;
+  bottom: 72px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    background: var(--paper);
+  }
+
+  .hero-shell {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .hero-copy {
+    padding: 42px 0 34px;
+  }
+
+  .hero-copy::before {
+    left: 0;
+    top: 42px;
+    height: 66px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 10vw, 68px);
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+}
+
+/* Keep product grids visually level across mixed product names and metadata. */
+.product-grid {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.product-card {
+  height: 100%;
+  min-height: 100%;
+}
+
+.product-image,
+.catalog-products .product-image {
+  aspect-ratio: 1 / 1;
+  padding: 0;
+}
+
+.product-image > img,
+.catalog-products .product-image > img {
+  object-fit: cover;
+}
+
+.product-card .product-info {
+  flex: 1;
+}
+
+.product-card .product-card-actions {
+  margin-top: auto;
+}
+
+/* Hero overrides must stay last because the stylesheet contains legacy hero cascades. */
+.hero {
+  background: #07111d;
+  color: #f7f6f1;
+  overflow: hidden;
+}
+
+.hero-shell {
+  min-height: min(760px, calc(100vh - 102px));
+  padding-top: 0;
+  padding-bottom: 0;
+  grid-template-columns: minmax(240px, 0.74fr) minmax(0, 1.26fr);
+  gap: clamp(22px, 4vw, 64px);
+  align-items: center;
+}
+
+.hero-copy {
+  padding: 0;
+  z-index: 4;
+}
+
+.hero-copy h1 {
+  max-width: 470px;
+  margin: 0;
+  color: #f7f6f1;
+  font-size: clamp(42px, 5.2vw, 78px);
+  line-height: 0.94;
+}
+
+.hero-visual {
+  min-height: clamp(560px, 76vh, 740px);
+  background: transparent;
+  overflow: visible;
+}
+
+.hero-visual::before {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-shell {
+    min-height: 0;
+    padding-top: 56px;
+    padding-bottom: 36px;
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .hero-copy h1 {
+    max-width: 560px;
+    font-size: clamp(46px, 13vw, 70px);
+  }
+
+  .hero-visual {
+    min-height: 500px;
   }
 }
 

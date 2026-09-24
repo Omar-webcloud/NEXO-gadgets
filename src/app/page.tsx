@@ -4,8 +4,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   Award,
+    Check,
   BatteryCharging,
-  Check,
   ChevronRight,
   Globe,
   Headphones,
@@ -22,7 +22,6 @@ import {
   Search,
   Shield,
   ShieldCheck,
-  Smartphone,
   Sparkles,
   Star,
   Truck,
@@ -116,45 +115,21 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-shell">
           <div className="hero-copy">
-            <span className="eyebrow"><span /> Gear Up. Live Smart.</span>
-            <h1>Best <span style={{ color: "var(--orange)" }}>Gadget Shop in Chittagong</span> &amp; Mobile Accessories in Bangladesh</h1>
-            <p>Thoughtfully designed NEXO gadgets that simplify your setup, power your day, and look good doing it. Fast delivery in Chittagong (Chattogram) and across Bangladesh.</p>
-            <div className="hero-buttons">
-              <Link className="button button-dark" href="/products#best-sellers">
-                Shop best sellers <ArrowRight size={17} />
-              </Link>
-              <Link className="text-link" href="/contact">Contact us <ArrowRight size={16} /></Link>
-            </div>
-            <div className="hero-proof">
-              <div className="avatars"><span>JK</span><span>SA</span><span>MR</span></div>
-              <div>
-                <strong>4.9 <span>★★★★★</span></strong>
-                <small>Loved by 12,000+ customers across Bangladesh</small>
-              </div>
-            </div>
+            <h1>Best Gadget Shop in Chittagong, Bangladesh</h1>
           </div>
           <div className="hero-visual">
-            <img
-              src="/images/foldable-stand.jpg"
-              alt="NEXO FlexFold premium phone stand holding a smartphone, top mobile accessory from NEXO gadget shop in Chittagong"
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-            />
-            <div className="floating-card float-top">
-              <span><Smartphone size={19} /></span>
-              <div>
-                <small>Universal fit</small>
-                <strong>Phone + tablet ready</strong>
-              </div>
+            <div className="hero-panel hero-panel-main">
+              <img src="/images/foldable-stand.jpg" alt="NEXO foldable phone stand" loading="eager" fetchPriority="high" />
             </div>
-            <div className="floating-card float-bottom">
-              <span><Check size={19} /></span>
-              <div>
-                <strong>Premium silicon</strong>
-              </div>
+            <div className="hero-panel hero-panel-power">
+              <img src="/images/powerbank.png" alt="NEXO power bank" loading="eager" />
             </div>
-            <div className="hero-tag">01 <i /> FLEXFOLD</div>
+            <div className="hero-panel hero-panel-audio">
+              <img src="/images/earbuds.png" alt="NEXO wireless earbuds" loading="eager" />
+            </div>
+            <div className="hero-panel hero-panel-wellness">
+              <img src="/images/head massager.png" alt="NEXO wellness gadget" loading="eager" />
+            </div>
           </div>
         </div>
       </section>
