@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Camera, Menu, MessageCircleMore, Music2, Search, Video, X, ShoppingBag } from "lucide-react";
 import { SITE_NAME } from "@/lib/site";
 import { useCart } from "@/lib/cart";
@@ -23,6 +24,7 @@ function Logo() {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +54,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className={`site-header ${scrolled ? "site-header-scrolled" : ""}`}>
+    <header className={`site-header ${!scrolled && pathname === "/" ? "site-header-hero" : ""} ${scrolled ? "site-header-scrolled" : ""}`}>
       <nav className="nav-shell" aria-label="Main navigation">
         <button className="icon-button mobile-only" onClick={() => setMenuOpen(true)} aria-label="Open menu">
           <Menu size={22} />

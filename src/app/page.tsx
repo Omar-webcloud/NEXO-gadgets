@@ -115,9 +115,23 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-shell">
           <div className="hero-copy">
-            <h1>Best Gadget Shop in Chittagong, Bangladesh</h1>
+            <span className="hero-kicker"><span className="hero-kicker-dot" /> NEXO / curated tech essentials</span>
+            <h1>Best Gadgets in <em>Chittagong, Bangladesh</em></h1>
+            <p className="hero-lede">
+              Discover useful, stylish gadgets for work, travel, entertainment, and everyday life — curated in Chittagong and delivered across Bangladesh.
+            </p>
+            <div className="hero-actions">
+              <Link href="/products#best-sellers" className="button button-light">Best sellers <ArrowRight size={16} /></Link>
+              <Link href="/contact" className="button button-hero-outline">Contact us <ChevronRight size={15} /></Link>
+            </div>
+            <div className="hero-signal-row" aria-label="NEXO shopping highlights">
+              <span className="hero-signal-card"><Globe size={16} /><strong>64</strong><small>districts delivered</small></span>
+              <span className="hero-signal-card"><ShieldCheck size={16} /><strong>COD</strong><small>available nationwide</small></span>
+            </div>
           </div>
           <div className="hero-visual">
+            <div className="hero-orbit hero-orbit-one" />
+            <div className="hero-orbit hero-orbit-two" />
             <div className="hero-panel hero-panel-main">
               <img src="/images/foldable-stand.jpg" alt="NEXO foldable phone stand" loading="eager" fetchPriority="high" />
             </div>
@@ -128,7 +142,7 @@ export default function HomePage() {
               <img src="/images/earbuds.png" alt="NEXO wireless earbuds" loading="eager" />
             </div>
             <div className="hero-panel hero-panel-wellness">
-              <img src="/images/head massager.png" alt="NEXO wellness gadget" loading="eager" />
+              <img src="/images/rotatable magnetic laptop stand.webp" alt="NEXO Rotatable Magnetic Laptop & Phone Stand | Premium Metal" loading="eager" />
             </div>
           </div>
         </div>
@@ -360,13 +374,13 @@ export default function HomePage() {
             <h2>Get in Touch with NEXO</h2>
             <p style={{ color: "#fff" }}>Looking for gadget shopping in Chittagong, order updates, or custom support? Reach us via WhatsApp or click contact to call &amp; view full store details.</p>
             <div className="contact-info">
-              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="contact-link" aria-label="WhatsApp NEXO Gadgets">
+              <a href="https://wa.me/8801796073736" target="_blank" rel="noopener noreferrer" className="contact-link button button-light" aria-label="WhatsApp NEXO Gadgets">
                 <span className="contact-link-icon"><MessageCircleMore size={18} /></span>
-                <span style={{ color: "#111" }}>WhatsApp</span>
+                <span>WhatsApp</span>
               </a>
-              <Link href="/contact" className="contact-link" aria-label="Contact NEXO">
+              <Link href="/contact" className="contact-link button button-hero-outline" aria-label="Contact NEXO">
                 <span className="contact-link-icon"><PhoneCall size={18} /></span>
-                <span style={{ color: "#111" }}>Contact</span>
+                <span>Contact</span>
               </Link>
             </div>
           </div>

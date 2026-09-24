@@ -4694,6 +4694,235 @@ footer {
   background: linear-gradient(145deg, #3a1e17, #142433);
 }
 
+/* NEXO hero: a daily-tech system instead of a generic storefront banner. */
+.hero-shell {
+  position: relative;
+}
+
+.hero-copy {
+  align-self: center;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 26px;
+  color: #ff8d3d;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-kicker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff7614;
+  box-shadow: 0 0 0 5px rgba(255, 118, 20, 0.13);
+}
+
+.hero-copy h1 {
+  max-width: 540px;
+  font-size: clamp(48px, 6.2vw, 92px);
+  line-height: 0.91;
+  letter-spacing: -0.065em;
+}
+
+.hero-copy h1 em {
+  color: #ff7614;
+  font-style: normal;
+}
+
+.hero-lede {
+  max-width: 430px;
+  margin: 26px 0 0;
+  color: rgba(247, 246, 241, 0.69);
+  font-size: clamp(0.96rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.hero-actions .button-light {
+  background: #f7f6f1;
+  color: #07111d;
+  box-shadow: 7px 7px 0 #ff7614;
+}
+
+.hero-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgba(247, 246, 241, 0.75);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero-text-link:hover {
+  color: #ff8d3d;
+}
+
+.hero-signal-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  max-width: 480px;
+  margin-top: 52px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(247, 246, 241, 0.18);
+  color: rgba(247, 246, 241, 0.52);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero-signal-row span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.hero-signal-row strong {
+  color: #f7f6f1;
+  font-size: 0.77rem;
+  letter-spacing: 0;
+}
+
+.hero-visual::after {
+  content: "DESK / POWER / AUDIO / WELLNESS";
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  z-index: 1;
+  color: rgba(247, 246, 241, 0.25);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  writing-mode: vertical-rl;
+}
+
+.hero-orbit {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid rgba(255, 118, 20, 0.26);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-orbit-one {
+  width: 78%;
+  aspect-ratio: 1;
+  top: 8%;
+  left: 12%;
+}
+
+.hero-orbit-two {
+  width: 112%;
+  aspect-ratio: 1;
+  top: -8%;
+  left: -6%;
+  border-color: rgba(247, 246, 241, 0.08);
+}
+
+.hero-stamp {
+  position: absolute;
+  right: 8%;
+  top: 3%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(247, 246, 241, 0.72);
+  transform: rotate(7deg);
+}
+
+.hero-stamp span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #ff7614;
+  border-radius: 50%;
+  color: #ff7614;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+}
+
+.hero-stamp small {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.hero-panel {
+  z-index: 2;
+}
+
+.hero-panel-label {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  z-index: 2;
+  color: rgba(247, 246, 241, 0.76);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 900px) {
+  .hero-copy h1 {
+    max-width: 620px;
+    font-size: clamp(48px, 12vw, 78px);
+  }
+
+  .hero-lede {
+    max-width: 520px;
+  }
+
+  .hero-signal-row {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-kicker {
+    margin-bottom: 20px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero-signal-row {
+    gap: 10px 16px;
+    margin-top: 34px;
+  }
+
+  .hero-stamp {
+    top: 1%;
+    right: 2%;
+  }
+
+  .hero-visual::after {
+    right: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-shell {
     min-height: 0;
@@ -4961,4 +5190,1059 @@ footer {
 
 
 
+
+/* Final hero direction: structured product grid, orange + charcoal only. */
+.hero {
+  background: var(--dark);
+  color: #f7f6f1;
+}
+
+.hero-shell {
+  min-height: min(760px, calc(100vh - 102px));
+  padding-top: clamp(48px, 7vw, 94px);
+  padding-bottom: clamp(48px, 7vw, 94px);
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(32px, 6vw, 90px);
+}
+
+.hero-copy {
+  padding: 0;
+}
+
+.hero-kicker {
+  margin-bottom: 24px;
+  color: var(--orange);
+}
+
+.hero-kicker-dot {
+  background: var(--orange);
+  box-shadow: 0 0 0 5px rgba(255, 118, 20, 0.16);
+}
+
+.hero-copy h1 {
+  max-width: 520px;
+  color: #f7f6f1;
+  font-size: clamp(48px, 6.1vw, 86px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.hero-copy h1 em {
+  color: var(--orange);
+  font-style: normal;
+}
+
+.hero-lede {
+  max-width: 430px;
+  margin: 26px 0 0;
+  color: rgba(247, 246, 241, 0.7);
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.hero-actions {
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.hero-actions .button-light {
+  background: var(--orange);
+  color: #f7f6f1;
+  box-shadow: 7px 7px 0 rgba(255, 118, 20, 0.22);
+}
+
+.button-hero-outline {
+  border: 1px solid rgba(247, 246, 241, 0.4);
+  color: #f7f6f1;
+  background: transparent;
+}
+
+.button-hero-outline:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.hero-text-link {
+  display: none;
+}
+
+.hero-signal-row {
+  max-width: 480px;
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(247, 246, 241, 0.18);
+  color: rgba(247, 246, 241, 0.52);
+}
+
+.hero-signal-row strong {
+  color: #f7f6f1;
+}
+
+.hero-visual {
+  min-height: clamp(480px, 64vh, 660px);
+  border: 1px solid rgba(255, 118, 20, 0.38);
+  background: linear-gradient(145deg, #31342beb, #131512fa);
+  box-shadow: 18px 18px 0 rgba(255, 118, 20, 0.12);
+  isolation: isolate;
+}
+
+.hero-visual::after {
+  content: "NEXO / 04 ESSENTIALS";
+  right: 18px;
+  top: 18px;
+  color: rgba(247, 246, 241, 0.58);
+  font-size: 0.58rem;
+  writing-mode: initial;
+}
+
+.hero-orbit {
+  border-color: rgba(255, 118, 20, 0.28);
+}
+
+.hero-orbit-one {
+  width: 62%;
+  top: 19%;
+  left: 19%;
+}
+
+.hero-orbit-two {
+  width: 88%;
+  top: 6%;
+  left: 6%;
+  border-color: rgba(247, 246, 241, 0.09);
+}
+
+.hero-stamp {
+  right: 18px;
+  top: auto;
+  bottom: 18px;
+  transform: rotate(-7deg);
+}
+
+.hero-stamp span {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.hero-panel {
+  border: 1px solid rgba(247, 246, 241, 0.28);
+  background: linear-gradient(145deg, #31342beb, #131512fa);
+  box-shadow: 10px 12px 0 rgba(0, 0, 0, 0.18);
+}
+
+.hero-panel-main {
+  inset: 14% 17% 14% 17%;
+  transform: rotate(0deg);
+}
+
+.hero-panel-main img {
+  object-fit: cover;
+  opacity: 0.86;
+}
+
+.hero-panel-power {
+  width: 29%;
+  height: 30%;
+  top: 8%;
+  left: 5%;
+  transform: rotate(-5deg);
+  background: linear-gradient(145deg, #31342beb, #131512fa);
+}
+
+.hero-panel-audio {
+  width: 29%;
+  height: 30%;
+  right: 5%;
+  bottom: 9%;
+  transform: rotate(5deg);
+  background: linear-gradient(145deg, #31342beb, #131512fa);
+}
+
+.hero-panel-wellness {
+  width: 25%;
+  height: 24%;
+  left: 8%;
+  bottom: 7%;
+  transform: rotate(-4deg);
+  background: linear-gradient(145deg, #31342beb, #131512fa);
+}
+
+.hero-panel-label {
+  color: var(--orange);
+}
+
+@media (max-width: 900px) {
+  .hero-shell {
+    min-height: 0;
+    padding-top: 54px;
+    padding-bottom: 54px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-copy h1 {
+    max-width: 680px;
+    font-size: clamp(48px, 11vw, 78px);
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-copy h1 {
+    font-size: clamp(44px, 13vw, 68px);
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 410px;
+  }
+
+  .hero-panel-main {
+    inset: 16% 14% 16% 14%;
+  }
+}
+
+/* Hero polish: clearer rhythm, compact proof cards, and a header that settles into the hero. */
+.hero-copy h1 {
+  margin-bottom: 0;
+}
+
+.hero-lede {
+  margin-top: 40px;
+}
+
+.hero-signal-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  max-width: 420px;
+  margin-top: 42px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.hero-signal-card {
+  display: grid !important;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+  align-items: center;
+  padding: 12px 13px;
+  border: 1px solid rgba(255, 118, 20, 0.36);
+  border-radius: 3px;
+  background: linear-gradient(145deg, #31342beb, #131512fa);
+  color: rgba(247, 246, 241, 0.58);
+  letter-spacing: 0.06em;
+}
+
+.hero-signal-card svg {
+  grid-row: 1 / span 2;
+  color: var(--orange);
+}
+
+.hero-signal-card strong {
+  color: #f7f6f1;
+  font-size: 0.8rem;
+  line-height: 1.1;
+}
+
+.hero-signal-card small {
+  color: rgba(247, 246, 241, 0.58);
+  font-size: 0.58rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero-panel-label {
+  display: none !important;
+}
+
+.site-header-hero {
+  background: rgba(7, 17, 29, 0.76);
+  border-bottom-color: rgba(247, 246, 241, 0.08);
+  box-shadow: none;
+  color: #f7f6f1;
+}
+
+.site-header-hero .nav-links a,
+.site-header-hero .logo,
+.site-header-hero .icon-button {
+  color: #f7f6f1;
+}
+
+.site-header-hero .icon-button:hover {
+  background: rgba(255, 118, 20, 0.16);
+}
+
+.hero-panel-wellness img {
+  object-position: 50% 100%;
+  transform: scale(2.05);
+}
+
+@media (max-width: 560px) {
+  .hero-lede {
+    margin-top: 30px;
+  }
+
+  .hero-signal-row {
+    gap: 8px;
+  }
+
+  .hero-signal-card {
+    grid-template-columns: 20px 1fr;
+    padding: 10px;
+  }
+}
+
+/* NEXO design system: one surface, one accent, two reusable button treatments. */
+:root {
+  --ink: #f7f6f1;
+  --muted: rgba(247, 246, 241, 0.62);
+  --paper: #131512;
+  --dark: #131512;
+  --line: rgba(247, 246, 241, 0.14);
+}
+
+body {
+  background: #131512 !important;
+  color: #f7f6f1;
+}
+
+.hero {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+}
+
+main > section:not(.hero),
+footer {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  color: #f7f6f1;
+}
+
+main > section:not(.hero) p,
+main > section:not(.hero) li,
+main > section:not(.hero) small,
+main > section:not(.hero) .section-heading > p,
+footer p,
+footer span,
+footer a {
+  color: rgba(247, 246, 241, 0.68);
+}
+
+main > section:not(.hero) h1,
+main > section:not(.hero) h2,
+main > section:not(.hero) h3,
+main > section:not(.hero) h4,
+footer h4,
+footer .logo,
+footer .logo span {
+  color: #f7f6f1;
+}
+
+.site-header,
+.site-header-scrolled,
+.site-header-hero {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  border-bottom-color: rgba(255, 118, 20, 0.24) !important;
+  color: #f7f6f1;
+}
+
+.site-header .nav-links a,
+.site-header .logo,
+.site-header .icon-button {
+  color: #f7f6f1;
+}
+
+.button,
+.button-light,
+.button-dark,
+.button-outline,
+.button-hero-outline,
+.contact-form .button,
+.product-actions .button,
+.drawer-footer .button {
+  min-height: 44px;
+  border: 1px solid var(--orange);
+  border-radius: 3px;
+  background: var(--orange) !important;
+  color: #f7f6f1 !important;
+  box-shadow: none;
+  font-weight: 800;
+}
+
+.button:hover,
+.button-light:hover,
+.button-dark:hover,
+.button-outline:hover,
+.button-hero-outline:hover,
+.contact-form .button:hover,
+.product-actions .button:hover,
+.drawer-footer .button:hover {
+  background: #f7f6f1 !important;
+  border-color: #f7f6f1;
+  color: #131512 !important;
+}
+
+.button-outline,
+.button-hero-outline {
+  background: transparent !important;
+  border-color: rgba(247, 246, 241, 0.5);
+  color: #f7f6f1 !important;
+}
+
+.button-outline:hover,
+.button-hero-outline:hover {
+  border-color: var(--orange);
+  background: var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.product-card,
+.why-card,
+.faq-item,
+.contact-form,
+.contact-link,
+.catalog-highlight,
+.form-card,
+.summary-card,
+.product-section-card,
+.product-spec-card,
+.empty-checkout-card,
+.social-card,
+.contact-hub-card,
+.contact-map-card,
+.catalog-products .product-image,
+.product-image {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  border-color: rgba(247, 246, 241, 0.14) !important;
+  color: #f7f6f1;
+}
+
+.intro-inner,
+.benefits,
+.benefits-shell,
+.collection-controls,
+.faq-a,
+.newsletter,
+.category-row button,
+.search-shortcut {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  color: #f7f6f1;
+}
+
+.intro-inner {
+  border-color: rgba(247, 246, 241, 0.14) !important;
+}
+
+.category-row button {
+  border-color: rgba(247, 246, 241, 0.22) !important;
+}
+
+.category-row button.active,
+.search-shortcut {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.collection-search-box,
+.contact-input,
+.contact-textarea,
+input,
+textarea {
+  background: #131512 !important;
+  border-color: rgba(247, 246, 241, 0.18) !important;
+  color: #f7f6f1 !important;
+}
+
+/* Final layout polish for the collection, FAQ, and contact CTA surfaces. */
+.collection-controls {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.collection-search-box {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: 0;
+}
+
+.faq-q {
+  padding: 22px 20px;
+}
+
+.faq-a {
+  padding-inline: 20px;
+}
+
+.faq-a p {
+  padding-left: 32px;
+  padding-right: 12px;
+}
+
+.newsletter .contact-link {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #fff !important;
+}
+
+.newsletter .contact-link span {
+  color: #fff !important;
+}
+
+.newsletter .contact-link-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.newsletter .contact-link:hover {
+  background: #f7f6f1 !important;
+  border-color: #f7f6f1 !important;
+  color: var(--ink) !important;
+}
+
+.newsletter .contact-link:hover span {
+  color: var(--ink) !important;
+}
+
+.newsletter .contact-link:hover .contact-link-icon {
+  background: #fef0e8;
+  color: var(--orange);
+}
+
+/* Let the original page surface show through instead of repeating dark panels. */
+main#top > section:not(.hero):not(.newsletter),
+main#top .intro-inner,
+main#top .benefits,
+main#top .benefits-shell,
+main#top .collection-controls,
+main#top .category-row button,
+main#top .product-card,
+main#top .why-card,
+main#top .faq-item,
+main#top .faq-a {
+  background: transparent !important;
+}
+
+main#top .contact-form {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+}
+
+main#top .newsletter .contact-input,
+main#top .newsletter .contact-textarea {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.52) !important;
+}
+
+main#top .newsletter .contact-link.button-light,
+main#top .newsletter .contact-link.button-light span,
+main#top .newsletter .contact-link.button-light svg {
+  color: #131512 !important;
+}
+
+main#top .newsletter .contact-link.button-light:hover,
+main#top .newsletter .contact-link.button-light:hover span,
+main#top .newsletter .contact-link.button-light:hover svg {
+  background: #131512 !important;
+  border-color: #131512 !important;
+  color: #fff !important;
+}
+
+main#top .newsletter .contact-link.button-hero-outline,
+main#top .newsletter .contact-link.button-hero-outline span,
+main#top .newsletter .contact-link.button-hero-outline svg {
+  color: #fff !important;
+}
+
+main#top .newsletter .contact-link.button-hero-outline:hover,
+main#top .newsletter .contact-link.button-hero-outline:hover span,
+main#top .newsletter .contact-link.button-hero-outline:hover svg {
+  background: #fff !important;
+  border-color: #fff !important;
+  color: #131512 !important;
+}
+
+/* Keep the home CTA orange after the shared route-surface overrides. */
+.newsletter {
+  background: var(--orange) !important;
+}
+
+/* Shared home layout rhythm and aligned collection controls. */
+main > .section-shell,
+main > .benefits,
+main > .newsletter {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: max(var(--page-gutter), calc((100vw - 1440px) / 2 + var(--page-gutter)));
+}
+
+main > .section-shell > *,
+main > .benefits > *,
+main > .newsletter > * {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.category-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin: 24px 0 32px;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.category-row button {
+  width: 100%;
+  justify-content: center;
+  min-width: 0;
+}
+
+.newsletter {
+  background: var(--orange) !important;
+  color: #fff !important;
+}
+
+.newsletter .contact-form {
+  background: rgba(19, 21, 18, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.34) !important;
+}
+
+.newsletter .contact-link {
+  width: auto;
+  min-height: 44px;
+  border-radius: 3px !important;
+  padding: 0 22px;
+  display: inline-flex;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: none;
+}
+
+.newsletter .contact-link.button-light {
+  background: #f7f6f1 !important;
+  border-color: #f7f6f1 !important;
+  color: #131512 !important;
+  box-shadow: 7px 7px 0 rgba(19, 21, 18, 0.22);
+}
+
+.newsletter .contact-link.button-hero-outline {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  color: #fff !important;
+}
+
+.newsletter .contact-link.button-light:hover,
+.newsletter .contact-link.button-hero-outline:hover {
+  background: #131512 !important;
+  border-color: #131512 !important;
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .category-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .category-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contact-page-hero {
+  background: linear-gradient(135deg, rgba(255, 118, 20, 0.2), rgba(49, 52, 43, 0.92) 62%, rgba(19, 21, 18, 0.98)) !important;
+}
+
+.search-icon-wrapper,
+.collection-search-box .clear-btn,
+.heart {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.hero-copy h1 + .hero-lede {
+  display: block;
+  margin-top: 0 !important;
+  padding-top: 32px;
+}
+
+.hero-stamp {
+  display: none;
+}
+
+.hero-panel-wellness::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, #131512fa 0%, #131512fa 24%, transparent 48%);
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  .hero-copy h1 + .hero-lede {
+    padding-top: 24px;
+  }
+}
+
+/* Keep the requested visual fixes last so they win over the route theme overrides above. */
+.newsletter {
+  background: var(--orange) !important;
+}
+
+.contact-page-hero {
+  background: linear-gradient(135deg, rgba(255, 118, 20, 0.2), rgba(49, 52, 43, 0.92) 62%, rgba(19, 21, 18, 0.98)) !important;
+}
+
+.newsletter .contact-link {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #fff !important;
+}
+
+.newsletter .contact-link span {
+  color: #fff !important;
+}
+
+.newsletter .contact-link-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.newsletter .contact-link:hover {
+  background: #f7f6f1 !important;
+  border-color: #f7f6f1 !important;
+  color: var(--ink) !important;
+}
+
+.newsletter .contact-link:hover span {
+  color: var(--ink) !important;
+}
+
+.newsletter .contact-link:hover .contact-link-icon {
+  background: #fef0e8;
+  color: var(--orange);
+}
+
+/* Route surfaces: contact, catalog, and product detail inherit the hero system. */
+.contact-page-shell,
+.catalog-page,
+.product-page {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  color: #f7f6f1;
+}
+
+.contact-page-hero,
+.product-hero,
+.catalog-section,
+.product-section,
+.contact-main-section,
+.contact-map-section {
+  background: transparent !important;
+  border-color: rgba(247, 246, 241, 0.14) !important;
+  color: #f7f6f1;
+}
+
+.contact-page-hero {
+  padding-top: 32px;
+  padding-bottom: 42px;
+  border-bottom: 1px solid rgba(255, 118, 20, 0.24);
+}
+
+.contact-hero-content h1,
+.contact-social-header h2,
+.contact-form-card h2,
+.contact-hub-card h3,
+.map-header-copy h2,
+.catalog-section h1,
+.catalog-section h2,
+.product-copy h1,
+.product-section h2,
+.product-section h3 {
+  color: #f7f6f1 !important;
+}
+
+.contact-hero-content p,
+.contact-social-header p,
+.form-heading p,
+.map-header-copy p,
+.catalog-section .section-heading > p,
+.product-copy p,
+.product-section .section-heading > p {
+  color: rgba(247, 246, 241, 0.68) !important;
+}
+
+.contact-form-card,
+.contact-hub-card,
+.contact-map-card,
+.social-card,
+.compact-category-card,
+.products-faq-card,
+.product-media,
+.product-copy,
+.product-section-card,
+.product-spec-card {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  border: 1px solid rgba(247, 246, 241, 0.16) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16) !important;
+  color: #f7f6f1;
+}
+
+.social-card:hover,
+.compact-category-card:hover {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  border-color: var(--orange) !important;
+}
+
+.social-card-insta:hover,
+.social-card-fb:hover,
+.social-card-wa:hover {
+  border-color: var(--orange) !important;
+}
+
+.social-card-icon,
+.insta-icon-bg,
+.fb-icon-bg,
+.wa-icon-bg,
+.compact-cat-icon {
+  background: var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.social-card-tag,
+.social-card-text strong,
+.compact-cat-info strong,
+.contact-hub-card h3,
+.hub-info-item strong,
+.hub-info-item span,
+.hub-info-item a,
+.social-card-action,
+.compact-cat-info span,
+.compact-cat-arrow {
+  color: #f7f6f1 !important;
+}
+
+.social-card-action,
+.map-open-btn,
+.related-link {
+  background: transparent !important;
+  border: 1px solid rgba(247, 246, 241, 0.42) !important;
+  color: #f7f6f1 !important;
+}
+
+.social-card-action:hover,
+.map-open-btn:hover,
+.related-link:hover {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.contact-cta-form label,
+.form-field-group label,
+.form-disclaimer {
+  color: rgba(247, 246, 241, 0.78) !important;
+}
+
+.form-control-input,
+.form-control-select,
+.form-control-textarea,
+.contact-input,
+.contact-textarea {
+  background: #131512 !important;
+  border-color: rgba(247, 246, 241, 0.22) !important;
+  color: #f7f6f1 !important;
+}
+
+.form-control-input::placeholder,
+.form-control-textarea::placeholder,
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: rgba(247, 246, 241, 0.42) !important;
+}
+
+.contact-submit-button,
+.contact-form-card .button {
+  background: var(--orange) !important;
+  border: 1px solid var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.success-icon-badge {
+  background: var(--orange) !important;
+  color: #f7f6f1 !important;
+}
+
+.catalog-products .product-card,
+.product-page .product-card {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  border-color: rgba(247, 246, 241, 0.16) !important;
+  color: #f7f6f1;
+}
+
+.catalog-products .product-info,
+.product-page .product-info,
+.catalog-products .product-info h3,
+.product-page .product-info h3,
+.catalog-products .product-info small,
+.product-page .product-info small,
+.catalog-products .price strong,
+.product-page .price strong {
+  color: #f7f6f1 !important;
+}
+
+.catalog-products .price s,
+.product-page .price s,
+.product-page .product-price-row span {
+  color: rgba(247, 246, 241, 0.5) !important;
+}
+
+.product-hero-shell {
+  color: #f7f6f1;
+}
+
+.product-eyebrow,
+.product-badge {
+  color: var(--orange) !important;
+}
+
+.product-price-row strong {
+  color: #f7f6f1 !important;
+}
+
+.product-highlights > div,
+.feature-item,
+.spec-item {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+  border-color: rgba(247, 246, 241, 0.14) !important;
+  color: rgba(247, 246, 241, 0.78) !important;
+}
+
+.product-highlights svg,
+.feature-item svg,
+.spec-item strong,
+.spec-item span,
+.product-section .eyebrow,
+.catalog-section .eyebrow,
+.contact-page-shell .eyebrow {
+  color: var(--orange) !important;
+}
+
+.product-copy .product-description,
+.product-copy .product-short,
+.product-section-card p,
+.product-spec-card p {
+  color: rgba(247, 246, 241, 0.68) !important;
+}
+
+/* Full-bleed section rhythm: backgrounds reach the viewport edges while content stays centered. */
+main > .section-shell,
+.catalog-page > .section-shell,
+.product-page > .product-section {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  border-radius: 0;
+}
+
+main > .section-shell > .section-heading,
+main > .section-shell > .product-grid,
+main > .section-shell > .intro-inner,
+main > .section-shell > .about-inner,
+main > .section-shell > .why-grid,
+main > .section-shell > .why-summary,
+main > .section-shell > .faq-list,
+main > .section-shell > .contact-layout-grid,
+main > .section-shell > .contact-map-card,
+main > .section-shell > .compact-categories-grid,
+main > .section-shell > .products-faq-grid,
+main > .section-shell > .product-section-card,
+main > .section-shell > .product-spec-card {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main > section + section,
+footer {
+  border-top: 1px solid rgba(247, 246, 241, 0.08);
+}
+
+.section-shell,
+.catalog-page .section-shell,
+.product-page .product-section {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+}
+
+.feature.section-shell,
+.quote.section-shell,
+.why-nexo.section-shell,
+.about-nexo.section-shell,
+.faq-section.section-shell,
+.collection.section-shell,
+.product-section.section-shell {
+  min-width: 100%;
+}
+
+.newsletter,
+.benefits,
+.contact-page-shell,
+.catalog-page,
+.product-page {
+  background: linear-gradient(145deg, #31342beb, #131512fa) !important;
+}
+
+/* Keep the requested visual fixes last so they win over the route theme overrides above. */
+.contact-page-hero {
+  background: linear-gradient(135deg, rgba(255, 118, 20, 0.2), rgba(49, 52, 43, 0.92) 62%, rgba(19, 21, 18, 0.98)) !important;
+}
+
+.newsletter .contact-link {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #fff !important;
+}
+
+.newsletter .contact-link span {
+  color: #fff !important;
+}
+
+.newsletter .contact-link-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.newsletter .contact-link:hover {
+  background: #f7f6f1 !important;
+  border-color: #f7f6f1 !important;
+  color: var(--ink) !important;
+}
+
+.newsletter .contact-link:hover span {
+  color: var(--ink) !important;
+}
+
+.newsletter .contact-link:hover .contact-link-icon {
+  background: #fef0e8;
+  color: var(--orange);
+}
 
