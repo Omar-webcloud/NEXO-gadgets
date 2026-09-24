@@ -10,7 +10,6 @@ import { CartDrawer } from "./cart-drawer";
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Products", href: "/products" },
-  { label: "Best sellers", href: "/products#best-sellers" },
   { label: "Contact", href: "/contact" },
 ];
 

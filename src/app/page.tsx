@@ -123,7 +123,7 @@ export default function HomePage() {
               <Link className="button button-dark" href="/products#best-sellers">
                 Shop best sellers <ArrowRight size={17} />
               </Link>
-              <Link className="text-link" href="/contact">Visit Chittagong Hub <ArrowRight size={16} /></Link>
+              <Link className="text-link" href="/contact">Contact us <ArrowRight size={16} /></Link>
             </div>
             <div className="hero-proof">
               <div className="avatars"><span>JK</span><span>SA</span><span>MR</span></div>

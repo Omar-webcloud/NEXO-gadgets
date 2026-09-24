@@ -7,6 +7,14 @@
   --orange: #ff7614;
   --line: #deded5;
   --dark: #1d1f1b;
+  --glass-light: rgba(255, 255, 255, 0.68);
+  --glass-light-strong: rgba(255, 255, 255, 0.84);
+  --glass-dark: rgba(29, 31, 27, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.72);
+  --glass-shadow: 0 18px 48px rgba(24, 25, 20, 0.09);
+  --glass-shadow-heavy: 0 24px 70px rgba(24, 25, 20, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.08) 42%, transparent 70%);
+  --glass-blur: blur(18px);
   --page-gutter: clamp(18px, 4vw, 58px);
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
@@ -27,11 +35,22 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 118, 20, 0.08), transparent 26rem),
+    radial-gradient(circle at 92% 38%, rgba(255, 255, 255, 0.8), transparent 30rem),
+    var(--paper);
   color: var(--ink);
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: var(--fs-md);
   line-height: 1.6;
+}
+
+@supports not (backdrop-filter: blur(18px)) {
+  :root {
+    --glass-light: #fdfcf8;
+    --glass-light-strong: #ffffff;
+    --glass-dark: var(--dark);
+  }
 }
 
 button,
@@ -547,7 +566,7 @@ img {
 
 .intro {
   padding-block: 36px 30px;
-  text-align: center;
+  text-align: left;
 }
 
 .intro-inner {
@@ -3966,6 +3985,351 @@ footer .footer-top > div:not(:first-child) a:hover {
   .map-open-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ============================================================================
+  Glassmorph surface system
+   ========================================================================== */
+
+.site-header {
+  background: rgba(247, 246, 241, 0.72);
+  border-bottom-color: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 28px rgba(24, 25, 20, 0.04);
+}
+
+.site-header-scrolled {
+  background: rgba(247, 246, 241, 0.84);
+  box-shadow: var(--glass-shadow);
+}
+
+.icon-button:hover,
+.search-panel,
+.collection-search-box,
+.product-label,
+.heart,
+.compact-category-card,
+.catalog-highlight,
+.products-faq-card,
+.why-card,
+.contact-link,
+.contact-form,
+.social-card,
+.contact-hub-card,
+.contact-form-card,
+.contact-map-card,
+.empty-checkout-card,
+.form-card,
+.summary-card,
+.product-section-card,
+.product-spec-card {
+  background: var(--glass-light);
+  background-image: var(--glass-sheen);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow-heavy);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.search-panel {
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.hero {
+  background: transparent;
+}
+
+.hero-shell {
+  padding-top: clamp(18px, 3vw, 42px);
+  padding-bottom: clamp(18px, 3vw, 42px);
+}
+
+.hero-copy {
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 26px 0 0 26px;
+  padding-left: clamp(18px, 3vw, 44px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.hero-visual {
+  border-radius: 0 26px 26px 0;
+  box-shadow: var(--glass-shadow);
+}
+
+.floating-card {
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.benefits {
+  background: rgba(255, 255, 255, 0.38);
+  border-block-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.collection-search-box:focus-within,
+.compact-category-card:hover,
+.why-card:hover,
+.social-card:hover,
+.contact-link:hover {
+  box-shadow: 0 18px 40px rgba(255, 118, 20, 0.14);
+}
+
+.category-row button {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.product-image {
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+}
+
+.product-info,
+.swatches,
+.product-card-actions {
+  padding-inline: 4px;
+}
+
+.product-card-actions .card-action-btn {
+  background: rgba(255, 255, 255, 0.52);
+  border-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.product-card-actions .card-action-btn.button-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.product-card-actions .card-action-btn.button-success {
+  color: #fff;
+}
+
+.feature {
+  width: calc(100% - (2 * var(--page-gutter)));
+  margin-inline: auto;
+  padding-inline: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(24, 25, 20, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.feature-copy {
+  position: relative;
+  background: linear-gradient(145deg, rgba(49, 52, 43, 0.92), rgba(19, 21, 18, 0.98));
+  overflow: hidden;
+}
+
+.feature-copy::after,
+.newsletter::after {
+  content: "";
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  right: -10rem;
+  top: -11rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(255, 255, 255, 0.04), 0 0 0 58px rgba(255, 118, 20, 0.08);
+  pointer-events: none;
+}
+
+.why-card,
+.catalog-highlight,
+.products-faq-card,
+.compact-category-card {
+  border-radius: 20px;
+}
+
+.about-nexo,
+.newsletter {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(125deg, #ff7614 0%, #d9570d 46%, #1d1f1b 100%);
+  color: #fff;
+}
+
+.newsletter .contact-inner,
+.newsletter .contact-copy,
+.newsletter .contact-form {
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter .contact-form {
+  background: rgba(29, 31, 27, 0.46);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--glass-shadow-heavy);
+}
+
+.newsletter .contact-input,
+.newsletter .contact-textarea {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+}
+
+.catalog-page,
+.product-page,
+.contact-page-shell {
+  background: transparent;
+}
+
+.catalog-top-categories,
+.catalog-products,
+.products-faq,
+.product-section,
+.contact-main-section,
+.contact-map-section {
+  position: relative;
+}
+
+.catalog-top-categories::before,
+.product-hero::before,
+.contact-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 118, 20, 0.06), transparent 48%);
+}
+
+.catalog-top-categories,
+.product-hero,
+.contact-page-hero {
+  isolation: isolate;
+}
+
+.product-hero,
+.contact-page-hero {
+  background: transparent;
+}
+
+.product-media {
+  background: var(--glass-light-strong);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.product-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.product-highlights div,
+.feature-item,
+.spec-item {
+  background: rgba(255, 255, 255, 0.46);
+  border-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.checkout-page {
+  position: relative;
+}
+
+.form-card,
+.summary-card,
+.empty-checkout-card {
+  border-radius: 22px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.form-control-input,
+.form-control-select,
+.form-control-textarea,
+.contact-input,
+.contact-textarea {
+  background: rgba(255, 255, 255, 0.48);
+  border-color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.form-control-input:focus,
+.form-control-select:focus,
+.form-control-textarea:focus,
+.contact-input:focus,
+.contact-textarea:focus {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.mobile-menu {
+  background: rgba(247, 246, 241, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.cart-drawer {
+  background: rgba(247, 246, 241, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+footer {
+  background: rgba(23, 25, 20, 0.96);
+}
+
+@media (max-width: 768px) {
+  .hero-shell {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .hero-copy {
+    border-radius: 22px 22px 0 0;
+  }
+
+  .hero-visual {
+    border-radius: 0 0 22px 22px;
+  }
+
+  .feature {
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
